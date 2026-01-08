@@ -13,11 +13,11 @@
         <div class="form-row">
           <div class="form-group">
             <label>Nome Completo *</label>
-            <input v-model="formData.name" type="text" placeholder="João Silva" class="input">
+            <input v-model="formData.name" type="text" placeholder="Seu nome completo" class="input">
           </div>
           <div class="form-group">
             <label>Profissão/Título *</label>
-            <input v-model="formData.title" type="text" placeholder="Desenvolvedor Full Stack" class="input">
+            <input v-model="formData.title" type="text" placeholder="Sua profissão" class="input">
           </div>
         </div>
 
@@ -28,14 +28,14 @@
           </div>
           <div class="form-group">
             <label>Telefone</label>
-            <input v-model="formData.phone" type="tel" placeholder="(11) 98765-4321" class="input">
+            <input v-model="formData.phone" type="tel" placeholder="(00) 00000-0000" class="input">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label>Endereço</label>
-            <input v-model="formData.location" type="text" placeholder="São Paulo, SP" class="input">
+            <input v-model="formData.location" type="text" placeholder="Cidade, Estado" class="input">
           </div>
           <div class="form-group">
             <label>CNH (Carteira Nacional de Habilitação)</label>
@@ -46,7 +46,7 @@
         <div class="form-row">
           <div class="form-group">
             <label>Idade</label>
-            <input v-model="formData.age" type="number" placeholder="30" class="input">
+            <input v-model="formData.age" type="number" placeholder="Sua idade" class="input">
           </div>
           <div class="form-group">
             <label>Sexo</label>
@@ -104,22 +104,22 @@
             <div class="form-row">
               <div class="form-group">
                 <label>Cargo</label>
-                <input v-model="exp.position" type="text" placeholder="Desenvolvedor Senior" class="input">
+                <input v-model="exp.position" type="text" placeholder="Nome do cargo" class="input">
               </div>
               <div class="form-group">
                 <label>Empresa</label>
-                <input v-model="exp.company" type="text" placeholder="Tech Solutions Ltda" class="input">
+                <input v-model="exp.company" type="text" placeholder="Nome da empresa" class="input">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label>Data de Início</label>
-                <input v-model="exp.startDate" type="text" placeholder="Jan 2021" class="input">
+                <input v-model="exp.startDate" type="text" placeholder="Mês Ano" class="input">
               </div>
               <div class="form-group">
                 <label>Data de Término</label>
-                <input v-model="exp.endDate" type="text" placeholder="Presente" class="input">
+                <input v-model="exp.endDate" type="text" placeholder="Mês Ano ou Atual" class="input">
               </div>
             </div>
 
@@ -148,17 +148,17 @@
             <div class="form-row">
               <div class="form-group">
                 <label>Grau/Curso</label>
-                <input v-model="edu.degree" type="text" placeholder="Bacharelado em Ciência da Computação" class="input">
+                <input v-model="edu.degree" type="text" placeholder="Nome do curso" class="input">
               </div>
               <div class="form-group">
                 <label>Instituição</label>
-                <input v-model="edu.institution" type="text" placeholder="Universidade de São Paulo" class="input">
+                <input v-model="edu.institution" type="text" placeholder="Nome da instituição" class="input">
               </div>
             </div>
 
             <div class="form-group">
               <label>Ano de Conclusão</label>
-              <input v-model="edu.graduationYear" type="text" placeholder="2020" class="input">
+              <input v-model="edu.graduationYear" type="text" placeholder="Ano" class="input">
             </div>
           </div>
         </div>
@@ -201,40 +201,33 @@ export default {
   data() {
     return {
       formData: {
-        name: 'João Silva',
-        title: 'Desenvolvedor Full Stack',
-        email: 'joao.silva@email.com',
-        phone: '(11) 98765-4321',
-        location: 'São Paulo, SP',
-        age: '30',
-        gender: 'Masculino',
-        cnh: 'Categoria B',
-        summary: 'Desenvolvedor Full Stack com 5 anos de experiência em desenvolvimento web. Especializado em Vue.js, React e Node.js. Apaixonado por criar interfaces intuitivas e soluções de backend escaláveis.',
+        name: '',
+        title: '',
+        email: '',
+        phone: '',
+        location: '',
+        age: '',
+        gender: '',
+        cnh: '',
+        summary: '',
         photo: '',
         experience: [
           {
-            position: 'Desenvolvedor Senior',
-            company: 'Tech Solutions',
-            startDate: 'Jan 2021',
-            endDate: 'Presente',
-            description: 'Liderança de projetos frontend, mentoria de desenvolvedores juniores e implementação de arquitetura de componentes reutilizáveis.'
-          },
-          {
-            position: 'Desenvolvedor Full Stack',
-            company: 'Digital Innovations',
-            startDate: 'Jun 2019',
-            endDate: 'Dez 2020',
-            description: 'Desenvolvimento de aplicações web full stack, integração de APIs e otimização de performance.'
+            position: '',
+            company: '',
+            startDate: '',
+            endDate: '',
+            description: ''
           }
         ],
         education: [
           {
-            degree: 'Bacharelado em Ciência da Computação',
-            institution: 'Universidade de São Paulo',
-            graduationYear: '2020'
+            degree: '',
+            institution: '',
+            graduationYear: ''
           }
         ],
-        skills: ['Vue.js', 'React', 'JavaScript', 'TypeScript', 'Node.js', 'Express.js', 'PostgreSQL', 'MongoDB', 'HTML/CSS', 'Git']
+        skills: []
       },
       newSkill: ''
     }
