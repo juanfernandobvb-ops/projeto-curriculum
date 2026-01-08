@@ -336,33 +336,5 @@ export default {
   .contact-bar {
     margin: 0;
   }
-
-  .section-title {
-    page-break-after: avoid;
-    break-after: avoid;
-    orphans: 3;
-    widows: 3;
-  }
-
-  .section {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 30px;
-  }
-
-  .exp,
-  .edu {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    orphans: 2;
-    widows: 2;
-  }
-
-  .exp-items {
-    orphans: 2;
-    widows: 2;
-  }
 }
 </style>

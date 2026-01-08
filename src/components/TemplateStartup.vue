@@ -329,33 +329,5 @@ export default {
   .hero-accent {
     display: none;
   }
-
-  .section-header h2 {
-    page-break-after: avoid;
-    break-after: avoid;
-    orphans: 3;
-    widows: 3;
-  }
-
-  .startup-section {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 30px;
-  }
-
-  .exp-item,
-  .edu-box {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    orphans: 2;
-    widows: 2;
-  }
-
-  .exp-list {
-    orphans: 2;
-    widows: 2;
-  }
 }
 </style>

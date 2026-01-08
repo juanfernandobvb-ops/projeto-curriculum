@@ -319,28 +319,9 @@ export default {
     background: white;
   }
 
-  .creative-section h2 {
-    page-break-after: avoid;
-    break-after: avoid;
-    orphans: 3;
-    widows: 3;
-  }
-
-  .creative-section {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 30px;
-  }
-
   .creative-item {
     box-shadow: none;
     border: 1px solid #e5e7eb;
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    orphans: 2;
-    widows: 2;
   }
 }
 </style>

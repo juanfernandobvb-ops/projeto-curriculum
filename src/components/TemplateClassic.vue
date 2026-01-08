@@ -251,28 +251,5 @@ export default {
   .classic-header {
     margin: 0;
   }
-
-  .classic-section h2 {
-    page-break-after: avoid;
-    break-after: avoid;
-    orphans: 3;
-    widows: 3;
-  }
-
-  .classic-section {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 30px;
-  }
-
-  .classic-exp,
-  .classic-edu {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    orphans: 2;
-    widows: 2;
-  }
 }
 </style>
