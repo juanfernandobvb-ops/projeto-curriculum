@@ -377,15 +377,30 @@ export default {
     break-inside: avoid;
   }
 
+  .section-title {
+    page-break-after: avoid;
+    break-after: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+
   .exp-item,
   .edu-item {
     page-break-inside: avoid;
     break-inside: avoid;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+  }
+
+  .experience-list,
+  .education-list {
+    orphans: 2;
+    widows: 2;
   }
 
   .content-section {
     page-break-after: auto;
+    margin-bottom: 30px;
   }
 }
 </style>

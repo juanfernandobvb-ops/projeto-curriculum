@@ -340,16 +340,32 @@ export default {
     margin: 0;
   }
 
+  .tech-section h2 {
+    page-break-after: avoid;
+    break-after: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+
   .tech-section {
     page-break-inside: avoid;
     break-inside: avoid;
+    margin-bottom: 30px;
   }
 
   .timeline-item,
   .education-item {
     page-break-inside: avoid;
     break-inside: avoid;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    orphans: 2;
+    widows: 2;
+  }
+
+  .experience-timeline {
+    orphans: 2;
+    widows: 2;
   }
 }
 </style>

@@ -294,16 +294,27 @@ export default {
     background: white;
   }
 
+  .minimal-section h2 {
+    page-break-after: avoid;
+    break-after: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+
   .minimal-header,
   .minimal-section {
     page-break-inside: avoid;
     break-inside: avoid;
+    margin-bottom: 30px;
   }
 
   .minimal-item {
     page-break-inside: avoid;
     break-inside: avoid;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    orphans: 2;
+    widows: 2;
   }
 }
 </style>
