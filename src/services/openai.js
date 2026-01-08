@@ -55,7 +55,10 @@ Para INFORMAÇÕES PESSOAIS:
     "title": "título profissional",
     "email": "email",
     "phone": "telefone",
-    "location": "localização",
+    "location": "endereço/localização",
+    "age": "idade",
+    "gender": "sexo (Masculino/Feminino/Outro)",
+    "cnh": "categoria da CNH",
     "summary": "resumo profissional"
   }
 }

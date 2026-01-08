@@ -28,8 +28,20 @@
               <span class="value">{{ curriculum.phone }}</span>
             </div>
             <div v-if="curriculum.location" class="contact-line">
-              <span class="label">Local:</span>
+              <span class="label">Endereço:</span>
               <span class="value">{{ curriculum.location }}</span>
+            </div>
+            <div v-if="curriculum.age" class="contact-line">
+              <span class="label">Idade:</span>
+              <span class="value">{{ curriculum.age }} anos</span>
+            </div>
+            <div v-if="curriculum.gender" class="contact-line">
+              <span class="label">Sexo:</span>
+              <span class="value">{{ curriculum.gender }}</span>
+            </div>
+            <div v-if="curriculum.cnh" class="contact-line">
+              <span class="label">CNH:</span>
+              <span class="value">{{ curriculum.cnh }}</span>
             </div>
           </div>
         </div>

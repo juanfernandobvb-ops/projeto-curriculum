@@ -20,6 +20,12 @@
       <span class="contact-item">{{ curriculum.phone }}</span>
       <span class="divider">|</span>
       <span class="contact-item">{{ curriculum.location }}</span>
+      <span v-if="curriculum.age" class="divider">|</span>
+      <span v-if="curriculum.age" class="contact-item">{{ curriculum.age }} anos</span>
+      <span v-if="curriculum.gender" class="divider">|</span>
+      <span v-if="curriculum.gender" class="contact-item">{{ curriculum.gender }}</span>
+      <span v-if="curriculum.cnh" class="divider">|</span>
+      <span v-if="curriculum.cnh" class="contact-item">{{ curriculum.cnh }}</span>
     </div>
 
     <div class="tech-min-layout">

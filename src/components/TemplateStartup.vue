@@ -15,6 +15,12 @@
             <span>{{ curriculum.phone }}</span>
             <span>•</span>
             <span>{{ curriculum.location }}</span>
+            <span v-if="curriculum.age">•</span>
+            <span v-if="curriculum.age">{{ curriculum.age }} anos</span>
+            <span v-if="curriculum.gender">•</span>
+            <span v-if="curriculum.gender">{{ curriculum.gender }}</span>
+            <span v-if="curriculum.cnh">•</span>
+            <span v-if="curriculum.cnh">{{ curriculum.cnh }}</span>
           </div>
         </div>
       </div>

@@ -32,9 +32,32 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label>Localização</label>
-          <input v-model="formData.location" type="text" placeholder="São Paulo, SP" class="input">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Endereço</label>
+            <input v-model="formData.location" type="text" placeholder="São Paulo, SP" class="input">
+          </div>
+          <div class="form-group">
+            <label>CNH (Carteira Nacional de Habilitação)</label>
+            <input v-model="formData.cnh" type="text" placeholder="Ex: Categoria B" class="input">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Idade</label>
+            <input v-model="formData.age" type="number" placeholder="30" class="input">
+          </div>
+          <div class="form-group">
+            <label>Sexo</label>
+            <select v-model="formData.gender" class="input">
+              <option value="">Selecione</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outro">Outro</option>
+              <option value="Prefiro não informar">Prefiro não informar</option>
+            </select>
+          </div>
         </div>
 
         <div class="form-group">
@@ -183,6 +206,9 @@ export default {
         email: 'joao.silva@email.com',
         phone: '(11) 98765-4321',
         location: 'São Paulo, SP',
+        age: '30',
+        gender: 'Masculino',
+        cnh: 'Categoria B',
         summary: 'Desenvolvedor Full Stack com 5 anos de experiência em desenvolvimento web. Especializado em Vue.js, React e Node.js. Apaixonado por criar interfaces intuitivas e soluções de backend escaláveis.',
         photo: '',
         experience: [

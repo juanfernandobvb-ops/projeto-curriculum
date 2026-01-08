@@ -22,6 +22,18 @@
             <span class="contact-icon">📍</span>
             <span>{{ curriculum.location }}</span>
           </div>
+          <div v-if="curriculum.age" class="contact-item">
+            <span class="contact-icon">🎂</span>
+            <span>{{ curriculum.age }} anos</span>
+          </div>
+          <div v-if="curriculum.gender" class="contact-item">
+            <span class="contact-icon">👤</span>
+            <span>{{ curriculum.gender }}</span>
+          </div>
+          <div v-if="curriculum.cnh" class="contact-item">
+            <span class="contact-icon">🚗</span>
+            <span>{{ curriculum.cnh }}</span>
+          </div>
         </div>
       </div>
     </header>

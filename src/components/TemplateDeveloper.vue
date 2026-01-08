@@ -66,6 +66,9 @@
           <p>📧 {{ curriculum.email }}</p>
           <p>📱 {{ curriculum.phone }}</p>
           <p>📍 {{ curriculum.location }}</p>
+          <p v-if="curriculum.age">🎂 {{ curriculum.age }} anos</p>
+          <p v-if="curriculum.gender">👤 {{ curriculum.gender }}</p>
+          <p v-if="curriculum.cnh">🚗 {{ curriculum.cnh }}</p>
         </div>
 
         <!-- Foto -->

@@ -28,8 +28,20 @@
               <p>{{ curriculum.phone }}</p>
             </div>
             <div class="contact-item" v-if="curriculum.location">
-              <strong>Localização:</strong>
+              <strong>Endereço:</strong>
               <p>{{ curriculum.location }}</p>
+            </div>
+            <div class="contact-item" v-if="curriculum.age">
+              <strong>Idade:</strong>
+              <p>{{ curriculum.age }} anos</p>
+            </div>
+            <div class="contact-item" v-if="curriculum.gender">
+              <strong>Sexo:</strong>
+              <p>{{ curriculum.gender }}</p>
+            </div>
+            <div class="contact-item" v-if="curriculum.cnh">
+              <strong>CNH:</strong>
+              <p>{{ curriculum.cnh }}</p>
             </div>
           </div>
         </div>

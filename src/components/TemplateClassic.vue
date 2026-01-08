@@ -9,6 +9,9 @@
         <span v-if="curriculum.email">{{ curriculum.email }}</span>
         <span v-if="curriculum.phone">({{ curriculum.phone }})</span>
         <span v-if="curriculum.location">{{ curriculum.location }}</span>
+        <span v-if="curriculum.age">{{ curriculum.age }} anos</span>
+        <span v-if="curriculum.gender">{{ curriculum.gender }}</span>
+        <span v-if="curriculum.cnh">{{ curriculum.cnh }}</span>
       </div>
     </header>
 

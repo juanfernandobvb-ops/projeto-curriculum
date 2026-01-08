@@ -37,7 +37,10 @@
           <div class="contact-tech">
             <p><strong>Email:</strong> {{ curriculum.email }}</p>
             <p><strong>Phone:</strong> {{ curriculum.phone }}</p>
-            <p><strong>Local:</strong> {{ curriculum.location }}</p>
+            <p><strong>Endereço:</strong> {{ curriculum.location }}</p>
+            <p v-if="curriculum.age"><strong>Idade:</strong> {{ curriculum.age }} anos</p>
+            <p v-if="curriculum.gender"><strong>Sexo:</strong> {{ curriculum.gender }}</p>
+            <p v-if="curriculum.cnh"><strong>CNH:</strong> {{ curriculum.cnh }}</p>
           </div>
         </section>
       </aside>

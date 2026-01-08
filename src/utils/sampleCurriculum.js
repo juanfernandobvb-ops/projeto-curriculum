@@ -5,6 +5,9 @@ export const sampleCurriculum = {
   email: 'joao.silva@email.com',
   phone: '(11) 98765-4321',
   location: 'São Paulo, SP',
+  age: '30',
+  gender: 'Masculino',
+  cnh: 'Categoria B',
   photo: null, // URL de foto opcional
   summary: 'Desenvolvedor Full Stack com 5 anos de experiência em desenvolvimento web. Especializado em Vue.js, React e Node.js. Apaixonado por criar interfaces intuitivas e soluções de backend escaláveis.',
   experience: [

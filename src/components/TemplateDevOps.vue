@@ -77,8 +77,20 @@
             <p>{{ curriculum.phone }}</p>
           </div>
           <div class="info-item">
-            <span class="info-label">Localização:</span>
+            <span class="info-label">Endereço:</span>
             <p>{{ curriculum.location }}</p>
+          </div>
+          <div v-if="curriculum.age" class="info-item">
+            <span class="info-label">Idade:</span>
+            <p>{{ curriculum.age }} anos</p>
+          </div>
+          <div v-if="curriculum.gender" class="info-item">
+            <span class="info-label">Sexo:</span>
+            <p>{{ curriculum.gender }}</p>
+          </div>
+          <div v-if="curriculum.cnh" class="info-item">
+            <span class="info-label">CNH:</span>
+            <p>{{ curriculum.cnh }}</p>
           </div>
         </div>
 
