@@ -319,9 +319,17 @@ export default {
     background: white;
   }
 
+  .creative-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
   .creative-item {
     box-shadow: none;
     border: 1px solid #e5e7eb;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
   }
 }
 </style>

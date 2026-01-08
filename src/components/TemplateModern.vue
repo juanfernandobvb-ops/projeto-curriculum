@@ -373,6 +373,19 @@ export default {
   .content-section {
     box-shadow: none;
     border: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .exp-item,
+  .edu-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+
+  .content-section {
+    page-break-after: auto;
   }
 }
 </style>

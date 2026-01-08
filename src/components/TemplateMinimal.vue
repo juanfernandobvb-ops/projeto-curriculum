@@ -297,6 +297,13 @@ export default {
   .minimal-header,
   .minimal-section {
     page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .minimal-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
   }
 }
 </style>

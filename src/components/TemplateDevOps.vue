@@ -417,5 +417,17 @@ export default {
   .template-devops {
     padding: 0;
   }
+
+  .content-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .timeline-item,
+  .education-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
 }
 </style>

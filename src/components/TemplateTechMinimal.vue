@@ -336,5 +336,17 @@ export default {
   .contact-bar {
     margin: 0;
   }
+
+  .section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .exp,
+  .edu {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
 }
 </style>

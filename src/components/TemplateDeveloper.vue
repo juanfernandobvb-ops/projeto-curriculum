@@ -322,5 +322,17 @@ export default {
   .dev-header {
     margin: 0;
   }
+
+  .dev-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .exp-card,
+  .edu-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
 }
 </style>

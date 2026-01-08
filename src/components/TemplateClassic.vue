@@ -251,5 +251,17 @@ export default {
   .classic-header {
     margin: 0;
   }
+
+  .classic-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .classic-exp,
+  .classic-edu {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
 }
 </style>

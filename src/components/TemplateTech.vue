@@ -339,5 +339,17 @@ export default {
   .tech-header {
     margin: 0;
   }
+
+  .tech-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .timeline-item,
+  .education-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
 }
 </style>

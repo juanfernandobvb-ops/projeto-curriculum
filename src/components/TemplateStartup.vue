@@ -329,5 +329,17 @@ export default {
   .hero-accent {
     display: none;
   }
+
+  .startup-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .exp-item,
+  .edu-box {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
 }
 </style>
