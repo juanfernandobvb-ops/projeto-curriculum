@@ -1,0 +1,27 @@
+{
+  "name": "projeto-curriculum",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "docxtemplater": "^3.67.6",
+    "font-awesome": "^4.7.0",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.12.1",
+    "puppeteer": "^24.34.0",
+    "tailwindcss": "^4.1.18",
+    "vee-validate": "^4.15.1",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "vite": "^4.4.9"
+  }
+}
