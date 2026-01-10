@@ -16,20 +16,30 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'HTML content is required' })
     }
 
-    // Inicia o navegador
-    browser = await puppeteer.launch({
-      args: chromium.args,
+    console.log('🚀 Iniciando Puppeteer...')
+
+    // Configuração otimizada para Vercel
+    const options = {
+      args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath(),
-      headless: chromium.headless
-    })
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true
+    }
 
+    console.log('📦 Iniciando browser...')
+    browser = await puppeteer.launch(options)
+
+    console.log('📄 Criando página...')
     const page = await browser.newPage()
 
     // Define o conteúdo HTML
     await page.setContent(html, {
-      waitUntil: 'networkidle0'
+      waitUntil: 'networkidle0',
+      timeout: 30000
     })
+
+    console.log('🖨️ Gerando PDF...')
 
     // Gera o PDF
     const pdf = await page.pdf({
@@ -45,21 +55,24 @@ export default async function handler(req, res) {
 
     await browser.close()
 
+    console.log('✅ PDF gerado com sucesso!')
+
     // Retorna o PDF
     res.setHeader('Content-Type', 'application/pdf')
     res.setHeader('Content-Disposition', `attachment; filename="${filename || 'curriculo.pdf'}"`)
     res.send(pdf)
 
   } catch (error) {
-    console.error('Error generating PDF:', error)
+    console.error('❌ Erro detalhado:', error)
     
     if (browser) {
-      await browser.close()
+      await browser.close().catch(() => {})
     }
 
     res.status(500).json({ 
       error: 'Failed to generate PDF',
-      details: error.message 
+      details: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
     })
   }
 }
