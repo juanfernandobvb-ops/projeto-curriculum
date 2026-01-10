@@ -1,10 +1,6 @@
 import chromium from '@sparticuz/chromium'
 import puppeteer from 'puppeteer-core'
 
-// Otimizações para Vercel
-chromium.setHeadlessMode = true
-chromium.setGraphicsMode = false
-
 export default async function handler(req, res) {
   // Apenas POST
   if (req.method !== 'POST') {
@@ -20,15 +16,22 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'HTML content is required' })
     }
 
-    console.log('🚀 Iniciando Puppeteer...')
+    console.log('🚀 Iniciando Puppeteer na Vercel...')
 
-    // Configuração otimizada para Vercel
+    // Configuração otimizada para Vercel serverless
     const options = {
-      args: chromium.args,
+      args: [
+        ...chromium.args,
+        '--disable-gpu',
+        '--disable-dev-shm-usage',
+        '--disable-setuid-sandbox',
+        '--no-sandbox',
+        '--single-process',
+        '--no-zygote'
+      ],
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath(),
-      headless: chromium.headless,
-      ignoreHTTPSErrors: true
+      headless: chromium.headless
     }
 
     console.log('📦 Iniciando browser...')

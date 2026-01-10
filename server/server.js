@@ -1,17 +1,20 @@
 import express from 'express'
 import cors from 'cors'
-import { spawn } from 'child_process'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import puppeteer from 'puppeteer'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 app.use(cors())
 app.use(express.json({ limit: '50mb' }))
 
+app.get('/', (req, res) => {
+  res.json({ status: 'ok', message: 'PDF Generator API is running' })
+})
+
 app.post('/api/generate-pdf', async (req, res) => {
+  let browser = null
+  
   try {
     const { html, filename } = req.body
 
@@ -19,64 +22,59 @@ app.post('/api/generate-pdf', async (req, res) => {
       return res.status(400).json({ error: 'HTML content is required' })
     }
 
-    console.log('🚀 Gerando PDF via Puppeteer...')
-
-    // Salva HTML temporário
-    const fs = await import('fs')
-    const tempHtml = path.join(__dirname, 'temp.html')
-    await fs.promises.writeFile(tempHtml, html)
-
-    // Usa puppeteer via npx (instala automaticamente se necessário)
-    const puppeteerScript = `
-      const puppeteer = require('puppeteer');
-      (async () => {
-        const browser = await puppeteer.launch({ headless: true });
-        const page = await browser.newPage();
-        await page.goto('file://${tempHtml.replace(/\\/g, '/')}', { waitUntil: 'networkidle0' });
-        const pdf = await page.pdf({
-          format: 'A4',
-          printBackground: true,
-          margin: { top: '20mm', right: '15mm', bottom: '20mm', left: '15mm' }
-        });
-        await browser.close();
-        process.stdout.write(pdf);
-      })();
-    `
-
-    const tempScript = path.join(__dirname, 'generate.js')
-    await fs.promises.writeFile(tempScript, puppeteerScript)
-
-    // Executa o script
-    const child = spawn('node', [tempScript], {
-      cwd: path.join(__dirname, '../api')
+    console.log('🚀 Iniciando Puppeteer...')
+    
+    // Inicia o navegador
+    browser = await puppeteer.launch({
+      headless: true,
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--disable-gpu'
+      ]
     })
 
-    const chunks = []
-    child.stdout.on('data', (chunk) => chunks.push(chunk))
-    
-    child.on('close', async (code) => {
-      // Limpa arquivos temporários
-      await fs.promises.unlink(tempHtml).catch(() => {})
-      await fs.promises.unlink(tempScript).catch(() => {})
+    console.log('📄 Criando página...')
+    const page = await browser.newPage()
 
-      if (code === 0) {
-        const pdf = Buffer.concat(chunks)
-        console.log('✅ PDF gerado!')
-        res.setHeader('Content-Type', 'application/pdf')
-        res.setHeader('Content-Disposition', `attachment; filename="${filename || 'curriculo.pdf'}"`)
-        res.send(pdf)
-      } else {
-        res.status(500).json({ error: 'Failed to generate PDF' })
+    // Define o conteúdo HTML
+    await page.setContent(html, {
+      waitUntil: 'networkidle0',
+      timeout: 30000
+    })
+
+    console.log('🖨️ Gerando PDF...')
+
+    // Gera o PDF
+    const pdf = await page.pdf({
+      format: 'A4',
+      printBackground: true,
+      margin: {
+        top: '20mm',
+        right: '15mm',
+        bottom: '20mm',
+        left: '15mm'
       }
     })
 
-    child.on('error', (err) => {
-      console.error('❌ Erro:', err)
-      res.status(500).json({ error: err.message })
-    })
+    await browser.close()
+
+    console.log('✅ PDF gerado com sucesso!')
+
+    // Retorna o PDF
+    res.setHeader('Content-Type', 'application/pdf')
+    res.setHeader('Content-Disposition', `attachment; filename="${filename || 'curriculo.pdf'}"`)
+    res.send(pdf)
 
   } catch (error) {
     console.error('❌ Erro ao gerar PDF:', error)
+    
+    if (browser) {
+      await browser.close().catch(() => {})
+    }
+
     res.status(500).json({ 
       error: 'Failed to generate PDF',
       details: error.message 
