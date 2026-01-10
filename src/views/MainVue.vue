@@ -39,15 +39,17 @@
         <h2>{{ getTemplateName() }}</h2>
         <div class="header-actions">
           <button 
-            @click="printPreview" 
+            @click="exportToPDF" 
             class="btn-print-primary" 
-            title="Salvar como PDF (Ctrl+P)"
+            :disabled="isGeneratingPDF"
+            title="Baixar PDF automático"
           >
-            📥 Baixar PDF
+            <span v-if="isGeneratingPDF">⏳ Gerando PDF...</span>
+            <span v-else>📥 Baixar PDF</span>
           </button>
-          <div class="pdf-hint">
-            💡 Dica: Na tela de impressão, escolha "Salvar como PDF"
-          </div>
+          <button @click="printPreview" class="btn-export-secondary" title="Salvar via impressão">
+            🖨️ Imprimir
+          </button>
         </div>
       </div>
       
