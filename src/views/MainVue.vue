@@ -221,10 +221,10 @@ export default {
         // Remove classe
         element.classList.remove('print-mode')
         
-        // URL da API (localhost em dev, /api em produção)
+        // URL da API (localhost em dev, EC2 em produção)
         const apiUrl = import.meta.env.DEV 
           ? 'http://localhost:3001/api/generate-pdf'
-          : '/api/generate-pdf'
+          : 'http://13.59.218.124:3001/api/generate-pdf'
         
         // Chama a API serverless
         const response = await fetch(apiUrl, {
