@@ -1,6 +1,10 @@
 import chromium from '@sparticuz/chromium'
 import puppeteer from 'puppeteer-core'
 
+// Otimizações para Vercel
+chromium.setHeadlessMode = true
+chromium.setGraphicsMode = false
+
 export default async function handler(req, res) {
   // Apenas POST
   if (req.method !== 'POST') {
@@ -20,7 +24,7 @@ export default async function handler(req, res) {
 
     // Configuração otimizada para Vercel
     const options = {
-      args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+      args: chromium.args,
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath(),
       headless: chromium.headless,
