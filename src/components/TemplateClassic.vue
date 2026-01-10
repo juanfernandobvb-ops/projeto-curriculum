@@ -75,6 +75,14 @@ export default {
   color: #333;
   font-family: Georgia, 'Times New Roman', serif;
   line-height: 1.6;
+  
+  /* Anti-quebra de palavras */
+  word-break: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
 }
 
 /* HEADER */

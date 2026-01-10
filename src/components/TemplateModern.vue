@@ -1,7 +1,7 @@
 <template>
-  <div class="template-modern">
+  <div class="template-modern a4-container">
     <!-- Header com foto e info básica -->
-    <div class="header-section">
+    <div class="header-section pdf-avoid-break">
       <div class="photo-container" v-if="curriculum.photo">
         <img :src="curriculum.photo" :alt="curriculum.name" class="photo-circle">
       </div>
@@ -16,30 +16,30 @@
       <!-- Sidebar Esquerda -->
       <aside class="sidebar">
         <!-- Contato -->
-        <div class="sidebar-block">
+        <div class="sidebar-block pdf-avoid-break">
           <h3 class="sidebar-title">CONTATO</h3>
           <div class="contact-list">
-            <div class="contact-item" v-if="curriculum.email">
+            <div class="contact-item pdf-avoid-break" v-if="curriculum.email">
               <strong>Email:</strong>
               <p>{{ curriculum.email }}</p>
             </div>
-            <div class="contact-item" v-if="curriculum.phone">
+            <div class="contact-item pdf-avoid-break" v-if="curriculum.phone">
               <strong>Telefone:</strong>
               <p>{{ curriculum.phone }}</p>
             </div>
-            <div class="contact-item" v-if="curriculum.location">
+            <div class="contact-item pdf-avoid-break" v-if="curriculum.location">
               <strong>Endereço:</strong>
               <p>{{ curriculum.location }}</p>
             </div>
-            <div class="contact-item" v-if="curriculum.age">
+            <div class="contact-item pdf-avoid-break" v-if="curriculum.age">
               <strong>Idade:</strong>
               <p>{{ curriculum.age }} anos</p>
             </div>
-            <div class="contact-item" v-if="curriculum.gender">
+            <div class="contact-item pdf-avoid-break" v-if="curriculum.gender">
               <strong>Sexo:</strong>
               <p>{{ curriculum.gender }}</p>
             </div>
-            <div class="contact-item" v-if="curriculum.cnh">
+            <div class="contact-item pdf-avoid-break" v-if="curriculum.cnh">
               <strong>CNH:</strong>
               <p>{{ curriculum.cnh }}</p>
             </div>
@@ -47,7 +47,7 @@
         </div>
 
         <!-- Habilidades -->
-        <div class="sidebar-block" v-if="curriculum.skills && curriculum.skills.length">
+        <div class="sidebar-block pdf-avoid-break" v-if="curriculum.skills && curriculum.skills.length">
           <h3 class="sidebar-title">HABILIDADES</h3>
           <div class="skills-list">
             <span class="skill-tag" v-for="(skill, index) in curriculum.skills" :key="index">
@@ -69,7 +69,7 @@
         <section v-if="curriculum.experience && curriculum.experience.length" class="content-section">
           <h2 class="section-title">EXPERIÊNCIA PROFISSIONAL</h2>
           <div class="experience-list">
-            <div class="exp-item" v-for="(item, index) in curriculum.experience" :key="index">
+            <div class="exp-item pdf-avoid-break" v-for="(item, index) in curriculum.experience" :key="index">
               <div class="exp-header">
                 <h3 class="exp-position">{{ item.position }}</h3>
                 <span class="exp-date">{{ item.startDate }} - {{ item.endDate }}</span>
@@ -84,7 +84,7 @@
         <section v-if="curriculum.education && curriculum.education.length" class="content-section">
           <h2 class="section-title">FORMAÇÃO ACADÊMICA</h2>
           <div class="education-list">
-            <div class="edu-item" v-for="(item, index) in curriculum.education" :key="index">
+            <div class="edu-item pdf-avoid-break" v-for="(item, index) in curriculum.education" :key="index">
               <div class="edu-header">
                 <h3 class="edu-degree">{{ item.degree }}</h3>
                 <span class="edu-year">{{ item.graduationYear }}</span>
@@ -111,11 +111,27 @@ export default {
 </script>
 
 <style scoped>
+/* CONTAINER COM DIMENSÕES A4 */
 .template-modern {
   background: #f8f9fa;
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 40px;
+  
+  /* Anti-quebra de palavras */
+  word-break: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+}
+
+/* Container A4 para PDF */
+.a4-container {
+  max-width: 210mm;
+  margin: 0 auto;
+  background: white;
 }
 
 /* HEADER */
@@ -140,7 +156,8 @@ export default {
   border: 4px solid #2c2c2c;
 }
 
-.name-section h1 {
+.name-section h1,
+.name {
   margin: 0;
   font-size: 2.2rem;
   color: #1a1a1a;
@@ -158,11 +175,15 @@ export default {
 .main-layout {
   display: flex;
   gap: 30px;
+  flex-wrap: nowrap;
+  align-items: flex-start;
 }
 
 /* SIDEBAR */
 .sidebar {
   flex: 0 0 280px;
+  min-width: 280px;
+  max-width: 280px;
   background: #2c2c2c;
   color: white;
   padding: 30px 25px;
@@ -171,6 +192,7 @@ export default {
 
 .sidebar-block {
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .sidebar-block:last-child {
@@ -228,6 +250,8 @@ export default {
 /* CONTENT AREA */
 .content-area {
   flex: 1;
+  min-width: 0;
+  max-width: calc(100% - 310px);
 }
 
 .content-section {
@@ -254,6 +278,8 @@ export default {
   font-size: 0.95rem;
   line-height: 1.7;
   color: #555;
+  word-break: normal;
+  hyphens: none;
 }
 
 /* EXPERIÊNCIA */
@@ -306,6 +332,8 @@ export default {
   font-size: 0.9rem;
   line-height: 1.6;
   color: #555;
+  word-break: normal;
+  hyphens: none;
 }
 
 /* EDUCAÇÃO */
@@ -352,27 +380,67 @@ export default {
   color: #666;
 }
 
+/* CLASSES DE CONTROLE DE QUEBRA */
+.pdf-avoid-break {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.pdf-page-break-before {
+  page-break-before: always !important;
+  break-before: page !important;
+}
+
+.pdf-page-break-after {
+  page-break-after: always !important;
+  break-after: page !important;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
-  .main-layout {
+  /* Desabilita responsive durante exportação PDF */
+  .template-modern:not(.pdf-export-mode) .main-layout {
     flex-direction: column;
   }
 
-  .sidebar {
+  .template-modern:not(.pdf-export-mode) .sidebar {
     flex: 1;
+  }
+  
+  /* Durante exportação, mantém layout de 2 colunas */
+  .pdf-export-mode .main-layout {
+    flex-direction: row !important;
+  }
+  
+  .pdf-export-mode .sidebar {
+    flex: 0 0 280px !important;
   }
 }
 
 @media print {
   .template-modern {
     background: white;
-    padding: 0;
+    padding: 15mm;
+    max-width: 210mm;
+  }
+
+  .a4-container {
+    max-width: 100%;
   }
 
   .header-section,
   .content-section {
     box-shadow: none;
     border: none;
+  }
+  
+  /* Reforçar regras de quebra na impressão */
+  .pdf-avoid-break,
+  .exp-item,
+  .edu-item,
+  .sidebar-block {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 }
 </style>

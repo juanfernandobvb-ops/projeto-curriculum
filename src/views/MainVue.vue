@@ -38,12 +38,16 @@
         <button class="back-btn" @click="currentView = 'templates'">← Voltar</button>
         <h2>{{ getTemplateName() }}</h2>
         <div class="header-actions">
-          <button @click="exportToPDF" class="btn-export" title="Exportar como PDF">
-            📥 Exportar PDF
+          <button 
+            @click="printPreview" 
+            class="btn-print-primary" 
+            title="Salvar como PDF (Ctrl+P)"
+          >
+            📥 Baixar PDF
           </button>
-          <button @click="printPreview" class="btn-print" title="Imprimir">
-            🖨️ Imprimir
-          </button>
+          <div class="pdf-hint">
+            💡 Dica: Na tela de impressão, escolha "Salvar como PDF"
+          </div>
         </div>
       </div>
       
@@ -78,7 +82,6 @@ import TemplateDevOps from '../components/TemplateDevOps.vue'
 import TemplateStartup from '../components/TemplateStartup.vue'
 import TemplateTechMinimal from '../components/TemplateTechMinimal.vue'
 import { sampleCurriculum } from '../utils/sampleCurriculum.js'
-import html2pdf from 'html2pdf.js'
 
 export default {
   name: 'MainVue',
@@ -99,6 +102,7 @@ export default {
       currentView: 'form',
       expandedTemplate: null,
       curriculum: JSON.parse(JSON.stringify(sampleCurriculum)),
+      isGeneratingPDF: false,
       templates: [
         { 
           id: 'modern', 
@@ -171,29 +175,99 @@ export default {
       }
       return components[templateId]
     },
-    exportToPDF() {
+    async exportToPDF() {
       const element = this.$refs.pdfContent
-      const templateName = this.getTemplateName().replace(/[✨📄🎯🎨]/g, '').trim()
+      const templateName = this.getTemplateName().replace(/[✨📄🎯🎨💻🔧⚙️🚀⚡]/g, '').trim()
       const curriculumName = this.curriculum.name.replace(/\s+/g, '-').toLowerCase()
+      const filename = `curriculo-${curriculumName}-${templateName}.pdf`
       
-      const options = {
-        margin: [0, 0, 0, 0],
-        filename: `curriculo-${curriculumName}-${templateName}.pdf`,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, logging: false },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      this.isGeneratingPDF = true
+      
+      try {
+        // Adiciona classe para impressão
+        element.classList.add('print-mode')
+        
+        // Aguarda renderização
+        await new Promise(resolve => setTimeout(resolve, 300))
+        
+        // Captura HTML completo com estilos inline
+        const styles = Array.from(document.styleSheets)
+          .map(styleSheet => {
+            try {
+              return Array.from(styleSheet.cssRules)
+                .map(rule => rule.cssText)
+                .join('\n')
+            } catch (e) {
+              return ''
+            }
+          })
+          .join('\n')
+        
+        const htmlContent = `
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="UTF-8">
+              <style>${styles}</style>
+            </head>
+            <body>
+              ${element.outerHTML}
+            </body>
+          </html>
+        `
+        
+        // Remove classe
+        element.classList.remove('print-mode')
+        
+        // URL da API (localhost em dev, /api em produção)
+        const apiUrl = import.meta.env.DEV 
+          ? 'http://localhost:3001/api/generate-pdf'
+          : '/api/generate-pdf'
+        
+        // Chama a API serverless
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            html: htmlContent,
+            filename: filename
+          })
+        })
+        
+        if (!response.ok) {
+          throw new Error('Falha ao gerar PDF')
+        }
+        
+        // Baixa o PDF
+        const blob = await response.blob()
+        const url = window.URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = filename
+        document.body.appendChild(a)
+        a.click()
+        window.URL.revokeObjectURL(url)
+        document.body.removeChild(a)
+        
+      } catch (error) {
+        console.error('Erro ao gerar PDF:', error)
+        alert('Erro ao gerar PDF. Tente usar o botão Imprimir como alternativa.')
+      } finally {
+        this.isGeneratingPDF = false
       }
-      
-      const clone = element.cloneNode(true)
-      clone.style.boxShadow = 'none'
-      clone.style.maxWidth = '100%'
-      clone.style.margin = '0'
-      clone.style.padding = '0'
-      
-      html2pdf().set(options).from(clone).save()
     },
     printPreview() {
-      window.print()
+      const element = this.$refs.pdfContent
+      element.classList.add('print-mode')
+      
+      setTimeout(() => {
+        window.print()
+        setTimeout(() => {
+          element.classList.remove('print-mode')
+        }, 500)
+      }, 100)
     }
   }
 }
@@ -392,29 +466,41 @@ export default {
   gap: 12px;
 }
 
-.btn-export,
-.btn-print {
+.btn-print-primary {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.btn-print-primary:hover {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+
+.btn-export-secondary {
   background: white;
   border: 1px solid #d0d0d0;
+  color: #666;
   padding: 10px 18px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: all 0.3s ease;
-  color: #2c2c2c;
 }
 
-.btn-export:hover {
-  border-color: #2c2c2c;
+.btn-export-secondary:hover {
+  border-color: #999;
   background: #f5f5f5;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.btn-print:hover {
-  border-color: #2c2c2c;
-  background: #f5f5f5;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
 .expanded-content {
@@ -426,6 +512,8 @@ export default {
 
 .pdf-container {
   max-width: 8.5in;
+  min-width: 8.5in;
+  width: 8.5in;
   background: white;
   margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -459,11 +547,34 @@ export default {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Print Styles */
+/* Print Styles - OTIMIZADO PARA PDF PERFEITO */
+@page {
+  size: A4;
+  margin: 15mm 12mm 15mm 12mm;
+  /* Remove cabeçalhos e rodapés do navegador */
+  @top-left { content: none; }
+  @top-center { content: none; }
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-center { content: none; }
+  @bottom-right { content: none; }
+}
+
+/* Adiciona margens extras para sobrescrever rodapé do navegador */
+@page :first {
+  margin-top: 0mm;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
 @media print {
+  /* Remove elementos da UI */
   .expanded-header,
   .floating-back-btn {
-    display: none;
+    display: none !important;
   }
 
   .expanded-view {
@@ -479,8 +590,194 @@ export default {
   .pdf-container {
     max-width: 100%;
     box-shadow: none;
-    page-break-after: always;
+    
+    /* ANTI-QUEBRA DE PALAVRAS - GLOBAL */
+    word-break: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
   }
+
+  /* REGRAS DE QUEBRA DE PÁGINA PERFEITAS */
+  
+  /* Evita quebra em itens pequenos */
+  .exp-item,
+  .edu-item,
+  .contact-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    word-break: keep-all;
+  }
+
+  /* Títulos nunca sozinhos no final */
+  h1, h2, h3, h4,
+  .section-title,
+  .sidebar-title,
+  .exp-position,
+  .edu-degree {
+    page-break-after: avoid;
+    break-after: avoid;
+    orphans: 3;
+    widows: 3;
+    word-break: keep-all;
+    hyphens: none;
+  }
+
+  /* Parágrafos e textos */
+  p,
+  .exp-description,
+  .section-text {
+    orphans: 3;
+    widows: 3;
+    page-break-inside: avoid;
+    word-break: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+
+  /* Blocos da sidebar */
+  .sidebar-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 12px;
+  }
+
+  /* Seções principais - permite quebra natural */
+  .content-section {
+    page-break-inside: auto;
+    margin-bottom: 18px;
+  }
+
+  /* Headers de seções */
+  .exp-header,
+  .edu-header {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Lista de experiências */
+  .experience-list,
+  .education-list {
+    page-break-inside: auto;
+  }
+
+  /* Garante que o layout se mantém */
+  .main-layout {
+    display: flex;
+  }
+
+  /* Otimiza fontes para impressão */
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+/* Estilo para a dica de PDF */
+.pdf-hint {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* PDF Export Mode - Regras OTIMIZADAS de quebra de página */
+.pdf-export-mode {
+  box-shadow: none !important;
+  background: white !important;
+  
+  /* ANTI-QUEBRA DE PALAVRAS - GLOBAL */
+  word-break: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -moz-hyphens: none !important;
+}
+
+/* ZONA DE SEGURANÇA - Padding e margens otimizadas */
+.pdf-export-mode p,
+.pdf-export-mode .exp-description,
+.pdf-export-mode .section-text {
+  line-height: 1.55 !important;
+  margin-bottom: 8px !important;
+  padding-bottom: 2px !important;
+  word-break: normal !important;
+  hyphens: none !important;
+  orphans: 3;
+  widows: 3;
+}
+
+/* BLOCOS QUE NUNCA DEVEM QUEBRAR */
+.pdf-export-mode .exp-item,
+.pdf-export-mode .edu-item {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  position: relative;
+}
+
+.pdf-export-mode .sidebar-block,
+.pdf-export-mode .contact-item {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Headers e títulos - nunca sozinhos no final */
+.pdf-export-mode h1,
+.pdf-export-mode h2,
+.pdf-export-mode h3,
+.pdf-export-mode .section-title,
+.pdf-export-mode .sidebar-title,
+.pdf-export-mode .exp-position,
+.pdf-export-mode .edu-degree {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+  page-break-inside: avoid !important;
+  word-break: keep-all !important;
+  hyphens: none !important;
+  orphans: 3;
+  widows: 3;
+}
+
+/* Headers de experiência/educação - manter com conteúdo */
+.pdf-export-mode .exp-header,
+.pdf-export-mode .edu-header {
+  page-break-inside: avoid !important;
+  page-break-after: avoid !important;
+  break-inside: avoid !important;
+  break-after: avoid !important;
+}
+
+/* Seções grandes - permite quebra controlada */
+.pdf-export-mode .content-section {
+  page-break-inside: auto;
+  margin-bottom: 16px !important;
+}
+
+/* Listas - permite quebra entre itens */
+.pdf-export-mode .experience-list,
+.pdf-export-mode .education-list {
+  page-break-inside: auto;
+}
+
+/* Força melhor renderização */
+.pdf-export-mode * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Espaçamento entre elementos críticos */
+.pdf-export-mode .exp-item {
+  margin-bottom: 18px !important;
+  padding-bottom: 18px !important;
+}
+
+.pdf-export-mode .edu-item {
+  margin-bottom: 14px !important;
+  padding-bottom: 14px !important;
 }
 
 @media (max-width: 768px) {

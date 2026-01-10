@@ -92,6 +92,14 @@ export default {
   background: #ffffff;
   color: #1a1a1a;
   font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Anti-quebra de palavras */
+  word-break: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
 }
 
 /* HEADER */
