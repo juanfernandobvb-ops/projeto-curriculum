@@ -104,10 +104,14 @@ export default {
 .startup-hero {
   background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
   color: white;
-  padding: 50px 40px;
+  padding: 50px 40px 30px 40px;
   position: relative;
   overflow: hidden;
-  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-accent {
@@ -126,10 +130,17 @@ export default {
   display: flex;
   gap: 30px;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
 }
 
 .hero-photo {
   flex: 0 0 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-photo img {
@@ -138,6 +149,14 @@ export default {
   border-radius: 0;
   border: 3px solid white;
   object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
 }
 
 .hero-text h1 {
@@ -145,6 +164,7 @@ export default {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.5px;
+  text-align: center;
 }
 
 .hero-title {
@@ -152,21 +172,27 @@ export default {
   font-size: 1.1rem;
   opacity: 0.95;
   font-weight: 600;
+  text-align: center;
 }
 
 .hero-contact {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   opacity: 0.9;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
 }
 
 /* SECTIONS */
 .startup-section {
   padding: 30px 40px;
-  border-bottom: 1px solid #e5e7eb;
   box-sizing: border-box;
+  margin: 0 auto 0 auto;
+  max-width: 900px;
 }
 
 .startup-section:last-child {
@@ -209,6 +235,9 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .col-2 {
@@ -225,16 +254,22 @@ export default {
 .exp-item {
   display: flex;
   gap: 15px;
+  align-items: flex-start;
 }
 
 .exp-marker {
   flex: 0 0 12px;
   width: 12px;
   height: 12px;
-  border-radius: 50%;
+  border-radius: 0;
   background: linear-gradient(135deg, #ff6b6b 0%, #c44569 100%);
   margin-top: 5px;
   flex-shrink: 0;
+}
+
+.exp-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .exp-content h3 {
@@ -271,6 +306,7 @@ export default {
   border-radius: 0;
   margin-bottom: 12px;
   border: 1px solid #e5e7eb;
+  box-sizing: border-box;
 }
 
 .edu-box h3 {
@@ -297,6 +333,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  justify-content: center;
 }
 
 .skill-tag {
@@ -326,14 +363,12 @@ export default {
   }
 
   .startup-hero {
-    padding: 40px 30px;
+    padding: 40px 20px 20px 20px;
   }
 
-  .startup-section h2::after {
-    left: 50%;
-    transform: translateX(-50%);
+  .startup-section {
+    padding: 20px 10px;
   }
 }
-
 
 </style>
