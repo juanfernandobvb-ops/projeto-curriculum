@@ -255,8 +255,7 @@ export default {
 }
 
 .tech-section h2 {
-  margin: 0 0 20px 0;
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -268,11 +267,10 @@ export default {
   margin-right: auto;
 }
 
-.tech-section p {
-  margin: 0;
-  color: #555;
-  line-height: 1.7;
-  font-size: 0.95rem;
+.tech-section p,
+.tech-section span,
+.tech-section h3 {
+  font-size: 12pt;
 }
 
 /* Timeline */
@@ -303,11 +301,23 @@ export default {
   box-shadow: 0 0 0 2px #58a6ff;
 }
 
+.timeline-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .timeline-body h3 {
   margin: 0 0 4px 0;
   font-size: 1rem;
   color: #1a1a1a;
   font-weight: 700;
+}
+
+.company-name,
+.date-range,
+.description {
+  font-size: 12pt;
 }
 
 .company-name {
@@ -321,37 +331,6 @@ export default {
   margin: 0 0 8px 0;
   font-size: 0.85rem;
   color: #999;
-}
-
-.description {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Educação */
-.education-item {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.education-item:last-child {
-  border-bottom: none;
-}
-
-.education-item h3 {
-  margin: 0;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #1a1a1a;
-}
-
-.institution {
-  margin: 6px 0 0 0;
-  font-size: 0.9rem;
-  color: #666;
 }
 
 @media (max-width: 900px) {

@@ -173,12 +173,28 @@ export default {
   gap: 12px;
 }
 .startup-section h2 {
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
-  color: #ff6b6b;
-  margin: 0 0 12px 0;
-  letter-spacing: 1px;
+  color: #ff6f00;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ffb300;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.startup-section p,
+.startup-section span,
+.startup-section h3 {
+  font-size: 12pt;
+}
+.exp-header,
+.exp-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .startup-summary {
   margin: 0;

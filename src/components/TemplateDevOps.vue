@@ -229,8 +229,7 @@ export default {
 }
 
 .section-header h2 {
-  margin: 0;
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
   color: #1e3c72;
 }
@@ -277,10 +276,14 @@ export default {
 
 .exp-title-row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 10px;
-  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timeline-content h3,
+.timeline-content span,
+.timeline-content p {
+  font-size: 12pt;
 }
 
 .timeline-content h3 {

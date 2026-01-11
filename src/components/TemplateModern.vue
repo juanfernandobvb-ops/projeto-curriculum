@@ -285,7 +285,7 @@ export default {
 }
 
 .section-title {
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -326,35 +326,34 @@ export default {
 
 .exp-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 15px;
+  flex-direction: column;
+  gap: 2px;
   margin-bottom: 8px;
 }
 
 .exp-position {
   margin: 0;
-  font-size: 1rem;
+  font-size: 12pt;
   font-weight: 700;
   color: #1a1a1a;
 }
 
 .exp-date {
-  font-size: 0.85rem;
+  font-size: 12pt;
   color: #999;
   white-space: nowrap;
 }
 
 .exp-company {
   margin: 0 0 8px 0;
-  font-size: 0.9rem;
+  font-size: 12pt;
   font-weight: 600;
   color: #666;
 }
 
 .exp-description {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 12pt;
   line-height: 1.6;
   color: #555;
   word-break: normal;

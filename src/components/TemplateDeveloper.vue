@@ -182,13 +182,18 @@ export default {
 }
 
 .dev-section h2 {
-  margin: 0 0 20px 0;
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
   color: #667eea;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+}
+
+.dev-section p,
+.dev-section span,
+.dev-section h3 {
+  font-size: 12pt;
 }
 
 .dev-section p {
@@ -214,10 +219,8 @@ export default {
 
 .exp-header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 15px;
-  margin-bottom: 8px;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .exp-header h3 {

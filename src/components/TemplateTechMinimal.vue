@@ -181,12 +181,17 @@ export default {
   gap: 12px;
 }
 .techmin-section h2 {
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
   color: #00d4ff;
   margin: 0 0 12px 0;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+.techmin-section p,
+.techmin-section span,
+.techmin-section h3 {
+  font-size: 12pt;
 }
 .techmin-summary {
   margin: 0;
@@ -211,9 +216,8 @@ export default {
 }
 .techmin-exp-header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 10px;
+  flex-direction: column;
+  gap: 2px;
 }
 .techmin-exp-position {
   font-weight: 700;

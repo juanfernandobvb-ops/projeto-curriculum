@@ -163,7 +163,7 @@ export default {
 }
 
 .classic-section h2 {
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -171,6 +171,11 @@ export default {
   border-bottom: 2px solid #333;
   padding-bottom: 10px;
   margin: 0 0 20px 0;
+}
+.classic-section p,
+.classic-section span,
+.classic-section strong {
+  font-size: 12pt;
 }
 
 /* EXPERIÊNCIA */
@@ -188,20 +193,19 @@ export default {
 
 .exp-row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 15px;
+  flex-direction: column;
+  gap: 2px;
   margin-bottom: 4px;
 }
 
 .exp-position {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 12pt;
   color: #000;
 }
 
 .exp-period {
-  font-size: 0.85rem;
+  font-size: 12pt;
   color: #666;
   white-space: nowrap;
 }
@@ -210,7 +214,7 @@ export default {
   margin: 4px 0 8px 0;
   font-weight: 600;
   color: #555;
-  font-size: 0.9rem;
+  font-size: 12pt;
 }
 
 .exp-text {

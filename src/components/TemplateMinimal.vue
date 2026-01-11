@@ -181,12 +181,30 @@ export default {
   gap: 12px;
 }
 .minimal-section h2 {
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   color: #1a1a1a;
   margin: 0 0 12px 0;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+.minimal-section p,
+.minimal-section span,
+.minimal-section h3 {
+  font-size: 12pt;
+}
+.minimal-item h3,
+.org-name,
+.date-range,
+.item-desc {
+  font-size: 12pt;
+}
+.minimal-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .minimal-summary {
   margin: 0;

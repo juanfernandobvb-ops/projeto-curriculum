@@ -249,7 +249,7 @@ export default {
 }
 
 .creative-section h2 {
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -261,12 +261,16 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+.creative-section p,
+.creative-section span,
+.creative-section h3 {
+  font-size: 12pt;
+}
 
-.creative-section p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.7;
+.item-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 /* ITEMS */
