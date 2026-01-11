@@ -1,6 +1,7 @@
 <template>
   <div class="main-container">
     <!-- Modo Formulário - Preencher dados -->
+    <!-- AWS EC2 Backend Integration -->
     <div v-if="currentView === 'form'" class="form-view">
       <FormBuilder @generate="handleFormGenerate" />
     </div>
