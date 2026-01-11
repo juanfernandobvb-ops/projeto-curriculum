@@ -1,77 +1,61 @@
 <template>
   <div class="template-techminimal">
-    <!-- Header Minimalista -->
-    <header class="tech-header">
-      <div class="header-wrapper">
-        <div v-if="curriculum.photo" class="photo-circle">
-          <img :src="curriculum.photo" :alt="curriculum.name">
-        </div>
-        <div class="header-main">
-          <h1>{{ curriculum.name }}</h1>
-          <p class="subtitle">{{ curriculum.title }}</p>
-        </div>
+    <!-- Header -->
+    <header class="techmin-header">
+      <div v-if="curriculum.photo" class="techmin-photo">
+        <img :src="curriculum.photo" :alt="curriculum.name">
+      </div>
+      <div class="techmin-header-info">
+        <h1>{{ curriculum.name }}</h1>
+        <p class="techmin-title">{{ curriculum.title }}</p>
       </div>
     </header>
 
     <!-- Contact Bar -->
-    <div class="contact-bar">
-      <span class="contact-item">{{ curriculum.email }}</span>
-      <span class="divider">|</span>
-      <span class="contact-item">{{ curriculum.phone }}</span>
-      <span class="divider">|</span>
-      <span class="contact-item">{{ curriculum.location }}</span>
-      <span v-if="curriculum.age" class="divider">|</span>
-      <span v-if="curriculum.age" class="contact-item">{{ curriculum.age }} anos</span>
-      <span v-if="curriculum.gender" class="divider">|</span>
-      <span v-if="curriculum.gender" class="contact-item">{{ curriculum.gender }}</span>
-      <span v-if="curriculum.cnh" class="divider">|</span>
-      <span v-if="curriculum.cnh" class="contact-item">{{ curriculum.cnh }}</span>
+    <div class="techmin-contact-bar">
+      <span v-if="curriculum.email" class="techmin-contact-item">{{ curriculum.email }}</span>
+      <span v-if="curriculum.phone" class="techmin-contact-item">| {{ curriculum.phone }}</span>
+      <span v-if="curriculum.location" class="techmin-contact-item">| {{ curriculum.location }}</span>
+      <span v-if="curriculum.age" class="techmin-contact-item">| {{ curriculum.age }} anos</span>
+      <span v-if="curriculum.gender" class="techmin-contact-item">| {{ curriculum.gender }}</span>
+      <span v-if="curriculum.cnh" class="techmin-contact-item">| {{ curriculum.cnh }}</span>
     </div>
 
-    <div class="tech-min-layout">
-      <!-- Main Content -->
-      <main class="content">
-        <!-- Resumo -->
-        <section v-if="curriculum.summary" class="section">
-          <p class="summary-text">{{ curriculum.summary }}</p>
-        </section>
-
-        <!-- Experiência -->
-        <section v-if="curriculum.experience && curriculum.experience.length" class="section">
-          <h2 class="section-title">EXPERIÊNCIA</h2>
-          <div class="exp-items">
-            <article v-for="(item, index) in curriculum.experience" :key="index" class="exp">
-              <div class="exp-header">
-                <h3 class="job-title">{{ item.position }}</h3>
-                <span class="date">{{ item.startDate }} — {{ item.endDate }}</span>
-              </div>
-              <p class="employer">{{ item.company }}</p>
-              <p class="description">{{ item.description }}</p>
-            </article>
+    <main class="techmin-main">
+      <section v-if="curriculum.summary" class="techmin-section">
+        <h2>Sobre</h2>
+        <p class="techmin-summary">{{ curriculum.summary }}</p>
+      </section>
+      <section v-if="curriculum.experience && curriculum.experience.length" class="techmin-section">
+        <h2>Experiência</h2>
+        <div class="techmin-experience-list">
+          <div v-for="(item, index) in curriculum.experience" :key="index" class="techmin-experience-item">
+            <div class="techmin-exp-header">
+              <span class="techmin-exp-position">{{ item.position }}</span>
+              <span class="techmin-exp-dates">{{ item.startDate }} – {{ item.endDate }}</span>
+            </div>
+            <span class="techmin-exp-company">{{ item.company }}</span>
+            <p class="techmin-exp-desc">{{ item.description }}</p>
           </div>
-        </section>
-
-        <!-- Educação -->
-        <section v-if="curriculum.education && curriculum.education.length" class="section">
-          <h2 class="section-title">EDUCAÇÃO</h2>
-          <div v-for="(item, index) in curriculum.education" :key="index" class="edu">
-            <h3 class="degree">{{ item.degree }}</h3>
-            <p class="school">{{ item.institution }} • {{ item.graduationYear }}</p>
+        </div>
+      </section>
+      <section v-if="curriculum.education && curriculum.education.length" class="techmin-section">
+        <h2>Educação</h2>
+        <div class="techmin-education-list">
+          <div v-for="(item, index) in curriculum.education" :key="index" class="techmin-education-item">
+            <span class="techmin-edu-degree">{{ item.degree }}</span>
+            <span class="techmin-edu-institution">{{ item.institution }}</span>
+            <span class="techmin-edu-year">{{ item.graduationYear }}</span>
           </div>
-        </section>
-      </main>
-
-      <!-- Sidebar -->
-      <aside class="sidebar-tech">
-        <!-- Stack Técnico -->
-        <section v-if="curriculum.skills && curriculum.skills.length" class="sidebar-section">
-          <h3 class="sidebar-title">STACK</h3>
-          <ul class="tech-list">
-            <li v-for="(skill, index) in curriculum.skills" :key="index">{{ skill }}</li>
-          </ul>
-        </section>
-      </aside>
-    </div>
+        </div>
+      </section>
+      <section v-if="curriculum.skills && curriculum.skills.length" class="techmin-section">
+        <h2>Stack</h2>
+        <div class="techmin-skills-list">
+          <span v-for="(skill, index) in curriculum.skills" :key="index" class="techmin-skill-item">{{ skill }}</span>
+        </div>
+      </section>
+    </main>
   </div>
 </template>
 
@@ -89,264 +73,219 @@ export default {
 
 <style scoped>
 .template-techminimal {
-  background: #ffffff;
+  background: #fff;
   color: #1a1a1a;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
-  
-  /* Anti-quebra de palavras */
-  word-break: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: none;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* HEADER */
-.tech-header {
+.techmin-header {
+  width: 100%;
   background: #1a1a1a;
-  color: white;
-  padding: 40px;
-}
-
-.header-wrapper {
+  color: #fff;
   display: flex;
-  gap: 25px;
-  align-items: flex-start;
-  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 32px 18px 32px;
+  box-sizing: border-box;
+  text-align: center;
 }
-
-.photo-circle {
-  flex: 0 0 100px;
+.techmin-photo {
+  margin-bottom: 14px;
 }
-
-.photo-circle img {
-  width: 100px;
-  height: 100px;
-  border-radius: 0;
+.techmin-photo img {
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   border: 2px solid #00d4ff;
+  border-radius: 0;
+  display: block;
+  margin: 0 auto;
 }
-
-.header-main h1 {
+.techmin-header-info {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.techmin-header-info h1 {
   margin: 0 0 8px 0;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
-
-.subtitle {
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.85;
+.techmin-title {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
   font-weight: 500;
+  opacity: 0.95;
+  font-style: italic;
 }
 
 /* CONTACT BAR */
-.contact-bar {
+.techmin-contact-bar {
+  width: 100%;
   background: #f5f5f5;
-  padding: 12px 40px;
+  padding: 10px 32px;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #555;
   flex-wrap: wrap;
+  justify-content: center;
   box-sizing: border-box;
 }
-
-.contact-item {
+.techmin-contact-item {
   color: #1a1a1a;
   font-weight: 500;
+  min-width: 80px;
+  text-align: center;
 }
 
-.divider {
-  color: #ccc;
-}
-
-/* LAYOUT */
-.tech-min-layout {
-  display: flex !important;
-  gap: 30px;
-  padding: 40px;
-  flex-wrap: nowrap !important;
-  flex-direction: row !important;
+/* MAIN CONTENT */
+.techmin-main {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 32px 24px;
   box-sizing: border-box;
-}
-
-.content {
-  flex: 1;
-}
-
-/* SECTIONS */
-.section {
-  margin-bottom: 35px;
-}
-
-.section-title {
-  margin: 0 0 20px 0;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  border-bottom: 1px solid #1a1a1a;
-  padding-bottom: 10px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.summary-text {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.8;
-  max-width: 600px;
-}
-
-/* EXPERIÊNCIA */
-.exp-items {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 32px;
 }
 
-.exp {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.exp:last-child {
-  border-bottom: none;
-}
-
-.exp-header {
+.techmin-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  padding: 24px 20px;
+  margin: 0;
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 15px;
-  margin-bottom: 4px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
-
-.job-title {
-  margin: 0;
-  font-size: 0.95rem;
+.techmin-section h2 {
+  font-size: 1rem;
   font-weight: 700;
-  color: #1a1a1a;
-}
-
-.date {
-  font-size: 0.8rem;
-  color: #999;
-  white-space: nowrap;
-}
-
-.employer {
-  margin: 0 0 8px 0;
-  font-size: 0.85rem;
   color: #00d4ff;
-  font-weight: 600;
+  margin: 0 0 12px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
-
-.description {
+.techmin-summary {
   margin: 0;
-  font-size: 0.85rem;
-  color: #666;
+  color: #555;
+  font-size: 0.98rem;
   line-height: 1.7;
 }
 
-/* EDUCAÇÃO */
-.edu {
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid #f0f0f0;
+/* EXPERIÊNCIA */
+.techmin-experience-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
-
-.edu:last-child {
-  border-bottom: none;
+.techmin-experience-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 4px solid #00d4ff;
+  padding-left: 12px;
 }
-
-.degree {
-  margin: 0 0 4px 0;
-  font-size: 0.9rem;
-  color: #1a1a1a;
+.techmin-exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.techmin-exp-position {
   font-weight: 700;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+.techmin-exp-dates {
+  font-size: 0.9rem;
+  color: #999;
+  white-space: nowrap;
+}
+.techmin-exp-company {
+  font-size: 0.95rem;
+  color: #00d4ff;
+  font-weight: 600;
+}
+.techmin-exp-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
 }
 
-.school {
-  margin: 0;
-  font-size: 0.85rem;
+/* EDUCAÇÃO */
+.techmin-education-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.techmin-education-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  font-size: 0.97rem;
+  color: #1a1a1a;
+  align-items: center;
+}
+.techmin-edu-degree {
+  font-weight: 700;
+  color: #00d4ff;
+}
+.techmin-edu-institution {
   color: #666;
 }
-
-/* SIDEBAR */
-.sidebar-tech {
-  flex: 0 0 200px !important;
-  min-width: 200px !important;
-  max-width: 200px !important;
-  flex-shrink: 0 !important;
+.techmin-edu-year {
+  color: #999;
+  font-size: 0.9rem;
 }
 
-.sidebar-section {
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 0;
+/* STACK */
+.techmin-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
 }
-
-.sidebar-title {
-  margin: 0 0 15px 0;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #1a1a1a;
-  text-transform: uppercase;
-}
-
-.tech-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.tech-list li {
-  padding: 8px 0;
-  font-size: 0.85rem;
-  color: #555;
-  position: relative;
-  padding-left: 15px;
-  border-radius: 0;
-}
-
-.tech-list li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
+.techmin-skill-item {
+  background: #fff;
   color: #00d4ff;
-  font-weight: bold;
+  border: 1px solid #00d4ff;
+  border-radius: 0;
+  padding: 7px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
-  .tech-min-layout {
-    flex-direction: column;
-    gap: 30px;
+  .techmin-main {
+    padding: 16px 4vw;
+    gap: 20px;
   }
-
-  .header-wrapper {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .techmin-section {
+    padding: 16px 8px;
+    gap: 8px;
   }
-
-  .header-main h1 {
-    font-size: 1.8rem;
+  .techmin-header {
+    padding: 24px 8px 12px 8px;
   }
-
-  .sidebar-tech {
-    flex: none;
+  .techmin-contact-bar {
+    padding: 8px 8px;
   }
 }
-
-
 </style>
