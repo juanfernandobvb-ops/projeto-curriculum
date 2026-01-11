@@ -18,7 +18,7 @@
         <!-- Experiência Profissional -->
         <section v-if="curriculum.experience && curriculum.experience.length" class="content-section">
           <div class="section-header">
-            <span class="section-icon">⚙️</span>
+            <IconSettings class="section-icon" />
             <h2>Experiência Profissional</h2>
           </div>
           <div class="timeline">
@@ -39,7 +39,7 @@
         <!-- Educação -->
         <section v-if="curriculum.education && curriculum.education.length" class="content-section">
           <div class="section-header">
-            <span class="section-icon">📚</span>
+            <IconBook class="section-icon" />
             <h2>Educação</h2>
           </div>
           <div v-for="(item, index) in curriculum.education" :key="index" class="education-item">
@@ -52,7 +52,7 @@
         <!-- Habilidades Técnicas -->
         <section v-if="curriculum.skills && curriculum.skills.length" class="content-section">
           <div class="section-header">
-            <span class="section-icon">💾</span>
+            <IconDatabase class="section-icon" />
             <h2>Stack Técnico</h2>
           </div>
           <div class="tech-grid">
@@ -111,6 +111,8 @@
 </template>
 
 <script>
+import { IconSettings, IconBook, IconDatabase } from '@tabler/icons-vue'
+
 export default {
   name: 'TemplateDevOps',
   props: {

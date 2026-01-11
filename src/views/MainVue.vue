@@ -25,7 +25,10 @@
             <component :is="getTemplateComponent(template.id)" :curriculum="curriculum" />
           </div>
           <div class="card-info">
-            <h3>{{ template.name }}</h3>
+            <h3>
+              <component :is="template.icon" class="template-list-icon" style="vertical-align: middle; margin-right: 6px;" />
+              {{ template.name }}
+            </h3>
             <p>{{ template.description }}</p>
             <button class="view-btn">Ver em Tela Cheia →</button>
           </div>
@@ -85,6 +88,7 @@ import TemplateDevOps from '../components/TemplateDevOps.vue'
 import TemplateStartup from '../components/TemplateStartup.vue'
 import TemplateTechMinimal from '../components/TemplateTechMinimal.vue'
 import { sampleCurriculum } from '../utils/sampleCurriculum.js'
+import { IconSparkles, IconFileText, IconTarget, IconPalette, IconDeviceLaptop, IconTools, IconSettings, IconRocket, IconBolt } from '@tabler/icons-vue'
 
 export default {
   name: 'MainVue',
@@ -98,7 +102,16 @@ export default {
     TemplateDeveloper,
     TemplateDevOps,
     TemplateStartup,
-    TemplateTechMinimal
+    TemplateTechMinimal,
+    IconSparkles,
+    IconFileText,
+    IconTarget,
+    IconPalette,
+    IconDeviceLaptop,
+    IconTools,
+    IconSettings,
+    IconRocket,
+    IconBolt
   },
   data() {
     return {
@@ -109,47 +122,56 @@ export default {
       templates: [
         { 
           id: 'modern', 
-          name: '✨ Moderno',
+          name: 'Modern',
+          icon: 'IconSparkles',
           description: 'Design limpo com sidebar profissional'
         },
         { 
           id: 'classic', 
-          name: '📄 Clássico',
+          name: 'Clássico',
+          icon: 'IconFileText',
           description: 'Estilo tradicional com tipografia serif'
         },
         { 
           id: 'minimal', 
-          name: '🎯 Minimalista',
+          name: 'Minimalista',
+          icon: 'IconTarget',
           description: 'Design clean com sidebar e informações bem organizadas'
         },
         { 
           id: 'creative', 
-          name: '🎨 Criativo',
+          name: 'Criativo',
+          icon: 'IconPalette',
           description: 'Layout moderno com foto em destaque'
         },
         { 
           id: 'tech', 
-          name: '💻 Tech GitHub',
+          name: 'Tech GitHub',
+          icon: 'IconDeviceLaptop',
           description: 'Inspirado em GitHub, perfeito para desenvolvedores'
         },
         { 
           id: 'developer', 
-          name: '🔧 Developer',
+          name: 'Developer',
+          icon: 'IconTools',
           description: 'Design moderno com gradiente púrpura para tech'
         },
         { 
           id: 'devops', 
-          name: '⚙️ DevOps',
+          name: 'DevOps',
+          icon: 'IconSettings',
           description: 'Template corporativo com timeline elegante'
         },
         { 
           id: 'startup', 
-          name: '🚀 Startup',
+          name: 'Startup',
+          icon: 'IconRocket',
           description: 'Design inovador e moderno com cores vibrantes'
         },
         { 
           id: 'techminimal', 
-          name: '⚡ Tech Minimal',
+          name: 'Tech Minimal',
+          icon: 'IconBolt',
           description: 'Minimalista e direto para profissionais tech'
         }
       ]

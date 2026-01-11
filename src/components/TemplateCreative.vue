@@ -11,27 +11,27 @@
         
         <div class="quick-contact">
           <div v-if="curriculum.email" class="contact-item">
-            <span class="contact-icon">📧</span>
+            <IconMail class="contact-icon" />
             <span>{{ curriculum.email }}</span>
           </div>
           <div v-if="curriculum.phone" class="contact-item">
-            <span class="contact-icon">📱</span>
+            <IconPhone class="contact-icon" />
             <span>{{ curriculum.phone }}</span>
           </div>
           <div v-if="curriculum.location" class="contact-item">
-            <span class="contact-icon">📍</span>
+            <IconMapPin class="contact-icon" />
             <span>{{ curriculum.location }}</span>
           </div>
           <div v-if="curriculum.age" class="contact-item">
-            <span class="contact-icon">🎂</span>
+            <IconCake class="contact-icon" />
             <span>{{ curriculum.age }} anos</span>
           </div>
           <div v-if="curriculum.gender" class="contact-item">
-            <span class="contact-icon">👤</span>
+            <IconUser class="contact-icon" />
             <span>{{ curriculum.gender }}</span>
           </div>
           <div v-if="curriculum.cnh" class="contact-item">
-            <span class="contact-icon">🚗</span>
+            <IconCar class="contact-icon" />
             <span>{{ curriculum.cnh }}</span>
           </div>
         </div>
@@ -91,6 +91,8 @@
 </template>
 
 <script>
+import { IconMail, IconPhone, IconMapPin, IconCake, IconUser, IconCar } from '@tabler/icons-vue'
+
 export default {
   name: 'TemplateCreative',
   props: {
