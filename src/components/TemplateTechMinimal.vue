@@ -165,9 +165,11 @@ export default {
 
 /* LAYOUT */
 .tech-min-layout {
-  display: flex;
-  gap: 50px;
+  display: flex !important;
+  gap: 30px;
   padding: 40px;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
 }
 
 .content {
@@ -275,7 +277,10 @@ export default {
 
 /* SIDEBAR */
 .sidebar-tech {
-  flex: 0 0 200px;
+  flex: 0 0 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
+  flex-shrink: 0 !important;
 }
 
 .sidebar-section {

@@ -152,13 +152,16 @@ export default {
 
 /* LAYOUT */
 .dev-layout {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   gap: 40px;
   padding: 40px;
 }
 
 .dev-main {
-  flex: 1;
+  flex: 1 !important;
+  min-width: 0 !important;
 }
 
 /* SECTIONS */
@@ -269,7 +272,10 @@ export default {
 
 /* SIDEBAR */
 .dev-sidebar {
-  flex: 0 0 240px;
+  flex: 0 0 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+  flex-shrink: 0 !important;
 }
 
 .sidebar-box {

@@ -155,14 +155,19 @@ export default {
 
 /* MAIN LAYOUT */
 .minimal-layout {
-  display: flex;
+  display: flex !important;
   gap: 30px;
   padding: 40px;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
 }
 
 /* SIDEBAR */
 .minimal-sidebar {
-  flex: 0 0 240px;
+  flex: 0 0 240px !important;
+  min-width: 240px !important;
+  max-width: 240px !important;
+  flex-shrink: 0 !important;
 }
 
 .minimal-block {

@@ -162,14 +162,19 @@ export default {
 
 /* LAYOUT */
 .tech-layout {
-  display: flex;
+  display: flex !important;
   gap: 30px;
   padding: 40px;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
 }
 
 /* SIDEBAR */
 .tech-sidebar {
-  flex: 0 0 260px;
+  flex: 0 0 260px !important;
+  min-width: 260px !important;
+  max-width: 260px !important;
+  flex-shrink: 0 !important;
 }
 
 .tech-block {

@@ -180,8 +180,20 @@ export default {
     },
     async exportToPDF() {
       const element = this.$refs.pdfContent
-      const templateName = this.getTemplateName().replace(/[✨📄🎯🎨💻🔧⚙️🚀⚡]/g, '').trim()
-      const curriculumName = this.curriculum.name.replace(/\s+/g, '-').toLowerCase()
+      const templateName = this.getTemplateName()
+        .replace(/[✨📄🎯🎨💻🔧⚙️🚀⚡]/g, '')
+        .trim()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-zA-Z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .toLowerCase()
+      const curriculumName = this.curriculum.name
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-zA-Z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .toLowerCase()
       const filename = `curriculo-${curriculumName}-${templateName}.pdf`
       
       this.isGeneratingPDF = true
@@ -204,8 +216,10 @@ export default {
           })
           .join('\n')
         
-        // Captura estilos inline e computed
-        const computedStyles = window.getComputedStyle(element)
+        // Pega o primeiro filho (o template em si, sem o wrapper .pdf-container)
+        // Fallback para innerHTML se não houver firstElementChild
+        const templateElement = element.firstElementChild
+        const htmlToSend = templateElement ? templateElement.outerHTML : element.innerHTML
         
         const htmlContent = `
           <!DOCTYPE html>
@@ -214,21 +228,36 @@ export default {
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <style>
-                * {
-                  box-sizing: border-box;
-                  -webkit-print-color-adjust: exact;
-                  print-color-adjust: exact;
+                @page {
+                  margin: 12mm 0 !important;
+                  size: A4 portrait;
                 }
-                body {
-                  margin: 0;
-                  padding: 0;
-                  background: white;
+                * {
+                  box-sizing: border-box !important;
+                  -webkit-print-color-adjust: exact !important;
+                  print-color-adjust: exact !important;
+                  -webkit-margin-before: 0 !important;
+                  -webkit-margin-after: 0 !important;
+                  -webkit-margin-start: 0 !important;
+                  -webkit-margin-end: 0 !important;
+                }
+                html, body {
+                  margin: 0 !important;
+                  padding: 0 !important;
+                  background: white !important;
+                  width: 100% !important;
+                  overflow-x: hidden !important;
+                }
+                body > * {
+                  width: 100% !important;
+                  margin: 0 !important;
+                  padding: 0 !important;
                 }
                 ${styles}
               </style>
             </head>
             <body>
-              ${element.innerHTML}
+              ${htmlToSend}
             </body>
           </html>
         `
@@ -520,18 +549,18 @@ export default {
 .expanded-content {
   flex: 1;
   overflow-y: auto;
-  background: white;
+  background: #f5f5f5;
   padding: 20px;
 }
 
 .pdf-container {
-  max-width: 8.5in;
-  min-width: 8.5in;
-  width: 8.5in;
+  max-width: 8.27in;
+  min-width: 8.27in;
+  width: 8.27in;
   background: white;
   margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 0;
 }
 
 .expanded-content > .pdf-container > * {

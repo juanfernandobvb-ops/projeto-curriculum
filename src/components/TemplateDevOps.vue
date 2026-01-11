@@ -181,13 +181,16 @@ export default {
 
 /* CONTAINER */
 .devops-container {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   gap: 40px;
   padding: 40px;
 }
 
 .main-content {
-  flex: 1;
+  flex: 1 !important;
+  min-width: 0 !important;
 }
 
 /* SECTIONS */
@@ -342,7 +345,10 @@ export default {
 
 /* SIDEBAR */
 .sidebar {
-  flex: 0 0 240px;
+  flex: 0 0 240px !important;
+  min-width: 240px !important;
+  max-width: 240px !important;
+  flex-shrink: 0 !important;
 }
 
 .sidebar-section {

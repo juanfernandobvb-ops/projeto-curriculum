@@ -1,7 +1,7 @@
 <template>
   <div class="template-modern a4-container">
     <!-- Header com foto e info básica -->
-    <div class="header-section pdf-avoid-break">
+    <div class="header-section">
       <div class="photo-container" v-if="curriculum.photo">
         <img :src="curriculum.photo" :alt="curriculum.name" class="photo-circle">
       </div>
@@ -69,7 +69,7 @@
         <section v-if="curriculum.experience && curriculum.experience.length" class="content-section">
           <h2 class="section-title">EXPERIÊNCIA PROFISSIONAL</h2>
           <div class="experience-list">
-            <div class="exp-item pdf-avoid-break" v-for="(item, index) in curriculum.experience" :key="index">
+            <div class="exp-item" v-for="(item, index) in curriculum.experience" :key="index">
               <div class="exp-header">
                 <h3 class="exp-position">{{ item.position }}</h3>
                 <span class="exp-date">{{ item.startDate }} - {{ item.endDate }}</span>
@@ -84,7 +84,7 @@
         <section v-if="curriculum.education && curriculum.education.length" class="content-section">
           <h2 class="section-title">FORMAÇÃO ACADÊMICA</h2>
           <div class="education-list">
-            <div class="edu-item pdf-avoid-break" v-for="(item, index) in curriculum.education" :key="index">
+            <div class="edu-item" v-for="(item, index) in curriculum.education" :key="index">
               <div class="edu-header">
                 <h3 class="edu-degree">{{ item.degree }}</h3>
                 <span class="edu-year">{{ item.graduationYear }}</span>
@@ -387,8 +387,7 @@ export default {
 
 /* CLASSES DE CONTROLE DE QUEBRA */
 .pdf-avoid-break {
-  page-break-inside: avoid !important;
-  break-inside: avoid !important;
+  /* Quebra natural permitida */
 }
 
 .pdf-page-break-before {

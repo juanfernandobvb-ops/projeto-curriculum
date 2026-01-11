@@ -1,0 +1,38 @@
+===== ATUALIZAÇÃO DO SERVIDOR EC2 =====
+
+Conecte no EC2 e execute:
+
+1. Editar o arquivo server.js:
+   nano ~/curriculo-pdf-server/server.js
+
+2. Encontre a seção com pdf.page() e altere as margens:
+
+   ANTES:
+   margin: {
+     top: '15mm',
+     right: '12mm',
+     bottom: '15mm',
+     left: '12mm'
+   }
+
+   DEPOIS:
+   margin: {
+     top: '12mm',
+     right: '8mm',
+     bottom: '12mm',
+     left: '8mm'
+   }
+
+3. Salvar (Ctrl+O, Enter, Ctrl+X)
+
+4. Reiniciar o servidor:
+   pm2 restart curriculo-pdf
+
+5. Verificar logs:
+   pm2 logs curriculo-pdf --lines 5
+
+===== EXPLICAÇÃO =====
+- Preview agora: 8.27in (21cm) - exatamente largura A4
+- PDF com margens 8mm: área útil = 21cm - 1.6cm = 19.4cm
+- Remoção do padding de 20px no preview
+- Isso dá mais espaço e evita "espremida"

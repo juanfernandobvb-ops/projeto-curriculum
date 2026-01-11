@@ -11,10 +11,11 @@ export default async function handler(req, res) {
     
     const { html, filename } = req.body
     console.log('📄 Filename:', filename)
+    console.log('📏 HTML size:', html ? html.length : 0, 'chars')
 
     // Chama o EC2 (HTTP é permitido em backend-to-backend)
     console.log('🚀 Chamando EC2...')
-    const response = await fetch('http://13.59.218.124:3001/api/generate-pdf', {
+    const response = await fetch('http://13.59.218.124:3000/api/generate-pdf', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -28,7 +29,9 @@ export default async function handler(req, res) {
     if (!response.ok) {
       const errorText = await response.text()
       console.error('❌ Erro do EC2:', errorText)
-      throw new Error(`EC2 retornou status ${response.status}`)
+      console.error('❌ Status:', response.status)
+      console.error('❌ StatusText:', response.statusText)
+      throw new Error(`EC2 retornou status ${response.status}: ${errorText}`)
     }
 
     // Retorna o PDF
@@ -45,7 +48,7 @@ export default async function handler(req, res) {
     res.status(500).json({ 
       error: 'Erro ao gerar PDF', 
       details: error.message,
-      ec2: 'http://13.59.218.124:3001'
+      ec2: 'http://13.59.218.124:3000'
     })
   }
 }
