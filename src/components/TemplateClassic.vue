@@ -131,11 +131,11 @@ export default {
 
 /* CONTENT */
 .classic-content {
-  padding: 50px 40px;
+  padding: 0 40px 30px 40px;
 }
 
 .classic-section {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .classic-section h2 {
@@ -251,13 +251,5 @@ export default {
   border-radius: 4px;
 }
 
-@media print {
-  .template-classic {
-    padding: 0;
-  }
 
-  .classic-header {
-    margin: 0;
-  }
-}
 </style>

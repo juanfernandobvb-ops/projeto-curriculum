@@ -113,10 +113,10 @@ export default {
 <style scoped>
 /* CONTAINER COM DIMENSÕES A4 */
 .template-modern {
-  background: #f8f9fa;
+  background: white;
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px;
+  padding: 0;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -137,11 +137,11 @@ export default {
 /* HEADER */
 .header-section {
   background: white;
-  padding: 40px;
-  border-radius: 8px;
-  margin-bottom: 30px;
+  padding: 30px 40px;
+  border-radius: 0;
+  margin-bottom: 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 
 .photo-container {
@@ -173,21 +173,24 @@ export default {
 
 /* MAIN LAYOUT - 2 COLUNAS */
 .main-layout {
-  display: flex;
+  display: flex !important;
   gap: 30px;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap !important;
   align-items: flex-start;
+  flex-direction: row !important;
 }
 
 /* SIDEBAR */
 .sidebar {
-  flex: 0 0 280px;
-  min-width: 280px;
-  max-width: 280px;
+  flex: 0 0 280px !important;
+  min-width: 280px !important;
+  max-width: 280px !important;
+  width: 280px !important;
   background: #2c2c2c;
   color: white;
   padding: 30px 25px;
   border-radius: 8px;
+  flex-shrink: 0 !important;
 }
 
 .sidebar-block {
@@ -249,17 +252,19 @@ export default {
 
 /* CONTENT AREA */
 .content-area {
-  flex: 1;
-  min-width: 0;
-  max-width: calc(100% - 310px);
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  flex-grow: 1 !important;
+  flex-shrink: 1 !important;
 }
 
 .content-section {
   background: white;
-  padding: 25px 30px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px 30px;
+  margin-bottom: 18px;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .section-title {
@@ -398,49 +403,12 @@ export default {
 
 /* Responsive */
 @media (max-width: 900px) {
-  /* Desabilita responsive durante exportação PDF */
-  .template-modern:not(.pdf-export-mode) .main-layout {
+  .main-layout {
     flex-direction: column;
   }
 
-  .template-modern:not(.pdf-export-mode) .sidebar {
+  .sidebar {
     flex: 1;
-  }
-  
-  /* Durante exportação, mantém layout de 2 colunas */
-  .pdf-export-mode .main-layout {
-    flex-direction: row !important;
-  }
-  
-  .pdf-export-mode .sidebar {
-    flex: 0 0 280px !important;
-  }
-}
-
-@media print {
-  .template-modern {
-    background: white;
-    padding: 15mm;
-    max-width: 210mm;
-  }
-
-  .a4-container {
-    max-width: 100%;
-  }
-
-  .header-section,
-  .content-section {
-    box-shadow: none;
-    border: none;
-  }
-  
-  /* Reforçar regras de quebra na impressão */
-  .pdf-avoid-break,
-  .exp-item,
-  .edu-item,
-  .sidebar-block {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
   }
 }
 </style>

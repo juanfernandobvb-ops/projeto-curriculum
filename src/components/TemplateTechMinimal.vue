@@ -336,13 +336,5 @@ export default {
   }
 }
 
-@media print {
-  .template-techminimal {
-    padding: 0;
-  }
 
-  .contact-bar {
-    margin: 0;
-  }
-}
 </style>

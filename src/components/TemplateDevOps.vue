@@ -421,9 +421,5 @@ export default {
   }
 }
 
-@media print {
-  .template-devops {
-    padding: 0;
-  }
-}
+
 </style>

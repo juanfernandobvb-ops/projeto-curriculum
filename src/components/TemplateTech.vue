@@ -339,13 +339,5 @@ export default {
   }
 }
 
-@media print {
-  .template-tech {
-    padding: 0;
-  }
 
-  .tech-header {
-    margin: 0;
-  }
-}
 </style>

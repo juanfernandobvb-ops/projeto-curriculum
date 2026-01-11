@@ -3,7 +3,7 @@ import cors from 'cors'
 import puppeteer from 'puppeteer'
 
 const app = express()
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3000
 
 app.use(cors())
 app.use(express.json({ limit: '50mb' }))
@@ -52,10 +52,10 @@ app.post('/api/generate-pdf', async (req, res) => {
       format: 'A4',
       printBackground: true,
       margin: {
-        top: '20mm',
-        right: '15mm',
-        bottom: '20mm',
-        left: '15mm'
+        top: '15mm',
+        right: '12mm',
+        bottom: '15mm',
+        left: '12mm'
       }
     })
 

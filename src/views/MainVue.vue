@@ -187,13 +187,10 @@ export default {
       this.isGeneratingPDF = true
       
       try {
-        // Adiciona classe para impressão
-        element.classList.add('print-mode')
-        
         // Aguarda renderização
-        await new Promise(resolve => setTimeout(resolve, 300))
+        await new Promise(resolve => setTimeout(resolve, 100))
         
-        // Captura HTML completo com estilos inline
+        // Captura TODOS os estilos CSS (incluindo scoped do Vue)
         const styles = Array.from(document.styleSheets)
           .map(styleSheet => {
             try {
@@ -201,26 +198,40 @@ export default {
                 .map(rule => rule.cssText)
                 .join('\n')
             } catch (e) {
+              console.warn('Não foi possível acessar stylesheet:', e)
               return ''
             }
           })
           .join('\n')
+        
+        // Captura estilos inline e computed
+        const computedStyles = window.getComputedStyle(element)
         
         const htmlContent = `
           <!DOCTYPE html>
           <html>
             <head>
               <meta charset="UTF-8">
-              <style>${styles}</style>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                * {
+                  box-sizing: border-box;
+                  -webkit-print-color-adjust: exact;
+                  print-color-adjust: exact;
+                }
+                body {
+                  margin: 0;
+                  padding: 0;
+                  background: white;
+                }
+                ${styles}
+              </style>
             </head>
             <body>
-              ${element.outerHTML}
+              ${element.innerHTML}
             </body>
           </html>
         `
-        
-        // Remove classe
-        element.classList.remove('print-mode')
         
         // URL da API (localhost em dev, proxy HTTPS em produção)
         const apiUrl = import.meta.env.DEV 
@@ -520,6 +531,7 @@ export default {
   background: white;
   margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .expanded-content > .pdf-container > * {

@@ -329,13 +329,5 @@ export default {
   }
 }
 
-@media print {
-  .template-startup {
-    padding: 0;
-  }
 
-  .hero-accent {
-    display: none;
-  }
-}
 </style>

@@ -322,16 +322,7 @@ export default {
   }
 }
 
-@media print {
-  .template-creative {
-    background: white;
-  }
 
-  .creative-item {
-    box-shadow: none;
-    border: 1px solid #e5e7eb;
-  }
-}
 </style>
 
 

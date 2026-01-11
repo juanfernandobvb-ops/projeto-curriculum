@@ -322,13 +322,5 @@ export default {
   }
 }
 
-@media print {
-  .template-developer {
-    padding: 0;
-  }
 
-  .dev-header {
-    margin: 0;
-  }
-}
 </style>

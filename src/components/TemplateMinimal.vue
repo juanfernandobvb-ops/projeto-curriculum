@@ -297,14 +297,5 @@ export default {
   }
 }
 
-@media print {
-  .template-minimal {
-    background: white;
-  }
 
-  .minimal-header,
-  .minimal-section {
-    page-break-inside: avoid;
-  }
-}
 </style>
