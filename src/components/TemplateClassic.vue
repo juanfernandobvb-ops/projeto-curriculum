@@ -90,48 +90,56 @@ export default {
 .classic-header {
   background: #2d2d2d;
   color: white;
-  padding: 50px 40px;
+  padding: 50px 40px 25px 40px;
   text-align: center;
   border-bottom: 4px solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .classic-header h1 {
-  margin: 0;
+  margin: 0 0 10px 0;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .classic-title {
-  margin: 10px 0 15px 0;
+  margin: 0 0 15px 0;
   font-size: 1rem;
   font-style: italic;
   color: #ccc;
   font-weight: 500;
+  text-align: center;
 }
 
 .classic-divider {
-  width: 100px;
+  width: 120px;
   height: 2px;
   background: #666;
-  margin: 15px auto;
+  margin: 15px auto 18px auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   box-sizing: border-box;
 }
 
 .classic-contact {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 22px;
   flex-wrap: wrap;
   color: #bbb;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .classic-contact span {
   display: inline-block;
+  min-width: 80px;
+  text-align: center;
 }
 
 /* CONTENT */
