@@ -26,10 +26,10 @@
         <h2>EXPERIÊNCIA PROFISSIONAL</h2>
         <div class="classic-exp" v-for="(item, index) in curriculum.experience" :key="index">
           <div class="exp-row">
-            <strong class="exp-position">{{ item.position }}</strong>
-            <span class="exp-period">{{ item.startDate }} - {{ item.endDate }}</span>
+            <div class="exp-position">{{ item.position }}</div>
+            <div class="exp-company">{{ item.company }}</div>
+            <div class="exp-period">{{ item.startDate }} - {{ item.endDate }}</div>
           </div>
-          <p class="exp-company">{{ item.company }}</p>
           <p class="exp-text">{{ item.description }}</p>
         </div>
       </section>

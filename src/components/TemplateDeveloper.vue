@@ -31,8 +31,8 @@
               <div class="exp-header">
                 <h3>{{ item.position }}</h3>
                 <span class="exp-company">{{ item.company }}</span>
+                <p class="exp-date">{{ item.startDate }} — {{ item.endDate }}</p>
               </div>
-              <p class="exp-date">{{ item.startDate }} — {{ item.endDate }}</p>
               <p class="exp-desc">{{ item.description }}</p>
             </div>
           </div>

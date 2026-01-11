@@ -31,10 +31,10 @@
         <div class="techmin-experience-list">
           <div v-for="(item, index) in curriculum.experience" :key="index" class="techmin-experience-item">
             <div class="techmin-exp-header">
-              <span class="techmin-exp-position">{{ item.position }}</span>
-              <span class="techmin-exp-dates">{{ item.startDate }} – {{ item.endDate }}</span>
+              <h3>{{ item.position }}</h3>
+              <span>{{ item.company }}</span>
+              <span>{{ item.startDate }} – {{ item.endDate }}</span>
             </div>
-            <span class="techmin-exp-company">{{ item.company }}</span>
             <p class="techmin-exp-desc">{{ item.description }}</p>
           </div>
         </div>

@@ -60,9 +60,11 @@
             <div v-for="(item, index) in curriculum.experience" :key="index" class="timeline-item">
               <div class="timeline-marker"></div>
               <div class="timeline-body">
-                <h3>{{ item.position }}</h3>
-                <p class="company-name">{{ item.company }}</p>
-                <p class="date-range">{{ item.startDate }} → {{ item.endDate }}</p>
+                <div class="exp-header">
+                  <h3>{{ item.position }}</h3>
+                  <span class="company-name">{{ item.company }}</span>
+                  <span class="date-range">{{ item.startDate }} → {{ item.endDate }}</span>
+                </div>
                 <p class="description">{{ item.description }}</p>
               </div>
             </div>

@@ -67,9 +67,9 @@
           <div class="creative-item" v-for="(item, index) in curriculum.experience" :key="index">
             <div class="item-header">
               <h3>{{ item.position }}</h3>
+              <span class="item-company">{{ item.company }}</span>
               <span class="item-date">{{ item.startDate }} - {{ item.endDate }}</span>
             </div>
-            <p class="item-company">{{ item.company }}</p>
             <p class="item-description">{{ item.description }}</p>
           </div>
         </section>

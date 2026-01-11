@@ -28,8 +28,8 @@
                 <div class="exp-title-row">
                   <h3>{{ item.position }}</h3>
                   <span class="company-badge">{{ item.company }}</span>
+                  <span class="timeline-date">{{ item.startDate }} — {{ item.endDate }}</span>
                 </div>
-                <p class="timeline-date">{{ item.startDate }} — {{ item.endDate }}</p>
                 <p class="timeline-desc">{{ item.description }}</p>
               </div>
             </div>

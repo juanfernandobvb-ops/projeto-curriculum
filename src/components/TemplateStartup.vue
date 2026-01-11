@@ -31,9 +31,9 @@
           <div v-for="(item, index) in curriculum.experience" :key="index" class="startup-experience-item">
             <div class="startup-exp-header">
               <span class="startup-exp-position">{{ item.position }}</span>
-              <span class="startup-exp-dates">{{ item.startDate }} – {{ item.endDate }}</span>
+              <span class="startup-exp-company">{{ item.company }}</span>
             </div>
-            <span class="startup-exp-company">{{ item.company }}</span>
+            <span class="startup-exp-dates">{{ item.startDate }} – {{ item.endDate }}</span>
             <p class="startup-exp-desc">{{ item.description }}</p>
           </div>
         </div>
@@ -228,15 +228,15 @@ export default {
   font-size: 1rem;
   color: #1a1a1a;
 }
-.startup-exp-dates {
-  font-size: 0.9rem;
-  color: #999;
-  white-space: nowrap;
-}
 .startup-exp-company {
   font-size: 0.95rem;
   color: #ff6b6b;
   font-weight: 600;
+}
+.startup-exp-dates {
+  font-size: 0.9rem;
+  color: #999;
+  white-space: nowrap;
 }
 .startup-exp-desc {
   font-size: 0.95rem;
