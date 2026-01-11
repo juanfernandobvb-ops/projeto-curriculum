@@ -95,6 +95,15 @@ export default {
 </script>
 
 <style scoped>
+:root, html, body {
+  font-size: 12pt;
+}
+@media print {
+  :root, html, body {
+    font-size: 12pt;
+  }
+}
+
 .template-tech {
   background: white;
   color: #1a1a1a;
@@ -349,6 +358,5 @@ export default {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
 
 </style>

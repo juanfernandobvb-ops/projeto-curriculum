@@ -111,6 +111,15 @@ export default {
 </script>
 
 <style scoped>
+:root, html, body {
+  font-size: 12pt;
+}
+@media print {
+  :root, html, body {
+    font-size: 12pt;
+  }
+}
+
 /* CONTAINER COM DIMENSÕES A4 */
 .template-modern {
   background: white;

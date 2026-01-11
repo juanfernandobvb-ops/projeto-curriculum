@@ -125,6 +125,15 @@ export default {
 </script>
 
 <style scoped>
+:root, html, body {
+  font-size: 12pt;
+}
+@media print {
+  :root, html, body {
+    font-size: 12pt;
+  }
+}
+
 .template-devops {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
@@ -435,6 +444,5 @@ export default {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 
 </style>

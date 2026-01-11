@@ -105,6 +105,15 @@ export default {
 </script>
 
 <style scoped>
+:root, html, body {
+  font-size: 12pt;
+}
+@media print {
+  :root, html, body {
+    font-size: 12pt;
+  }
+}
+
 .template-creative {
   background: white;
   color: #333;
@@ -334,7 +343,6 @@ export default {
     justify-content: center;
   }
 }
-
 
 </style>
 
