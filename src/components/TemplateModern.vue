@@ -298,6 +298,26 @@ export default {
   margin-right: auto;
 }
 
+.divider {
+  border-bottom: 1px solid #aaa;
+  margin: 16px 0 16px 0;
+}
+
+.skills-title {
+  margin-bottom: 12px !important;
+  display: block;
+}
+
+@media print {
+  .skills-title {
+    margin-bottom: 12px !important;
+    display: block;
+  }
+  .divider {
+    margin: 16px 0 16px 0 !important;
+  }
+}
+
 .section-subtitle {
   margin-bottom: 10px;
   margin-top: 8px;
