@@ -178,7 +178,7 @@ export default {
 
 /* SECTIONS */
 .dev-section {
-  margin-bottom: 35px;
+  margin-bottom: 28px;
 }
 
 .dev-section h2 {
@@ -188,6 +188,12 @@ export default {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 16px;
+}
+
+.dev-section h3 {
+  margin-bottom: 8px;
+  margin-top: 6px;
 }
 
 .dev-section p,
@@ -220,7 +226,8 @@ export default {
 .exp-header {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 
 .exp-header h3 {

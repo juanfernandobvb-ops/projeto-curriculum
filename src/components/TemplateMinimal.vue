@@ -179,6 +179,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+  margin-bottom: 24px;
 }
 .minimal-section h2 {
   font-size: 14pt;
@@ -186,25 +187,24 @@ export default {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #1a1a1a;
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   padding-bottom: 8px;
   border-bottom: 1px solid #ddd;
+}
+.minimal-section h3 {
+  margin-bottom: 8px;
+  margin-top: 6px;
 }
 .minimal-section p,
 .minimal-section span,
 .minimal-section h3 {
   font-size: 12pt;
 }
-.minimal-item h3,
-.org-name,
-.date-range,
-.item-desc {
-  font-size: 12pt;
-}
 .minimal-item {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 .minimal-summary {
   margin: 0;

@@ -171,6 +171,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+  margin-bottom: 24px;
 }
 .startup-section h2 {
   font-size: 14pt;
@@ -178,12 +179,16 @@ export default {
   color: #ff6f00;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin: 0 0 16px 0;
+  margin: 0 0 14px 0;
   padding-bottom: 8px;
   border-bottom: 2px solid #ffb300;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+}
+.startup-section h3 {
+  margin-bottom: 8px;
+  margin-top: 6px;
 }
 .startup-section p,
 .startup-section span,
@@ -194,7 +199,8 @@ export default {
 .exp-block {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 .startup-summary {
   margin: 0;

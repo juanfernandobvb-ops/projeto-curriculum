@@ -232,6 +232,7 @@ export default {
   font-size: 14pt;
   font-weight: 700;
   color: #1e3c72;
+  margin-bottom: 16px;
 }
 
 /* TIMELINE - Experiência */
@@ -277,7 +278,8 @@ export default {
 .exp-title-row {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 
 .timeline-content h3,

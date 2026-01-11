@@ -179,14 +179,19 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+  margin-bottom: 24px;
 }
 .techmin-section h2 {
   font-size: 14pt;
   font-weight: 700;
   color: #00d4ff;
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+.techmin-section h3 {
+  margin-bottom: 8px;
+  margin-top: 6px;
 }
 .techmin-section p,
 .techmin-section span,
@@ -217,7 +222,8 @@ export default {
 .techmin-exp-header {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 .techmin-exp-position {
   font-weight: 700;

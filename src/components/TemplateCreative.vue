@@ -245,7 +245,7 @@ export default {
 }
 
 .creative-section {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .creative-section h2 {
@@ -254,12 +254,16 @@ export default {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #1a1a1a;
-  margin: 0 0 20px 0;
+  margin: 0 0 18px 0;
   padding-bottom: 10px;
   border-bottom: 2px solid #333;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+}
+.creative-section h3 {
+  margin-bottom: 8px;
+  margin-top: 6px;
 }
 .creative-section p,
 .creative-section span,
@@ -270,7 +274,8 @@ export default {
 .item-header {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 
 /* ITEMS */

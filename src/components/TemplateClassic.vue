@@ -158,7 +158,7 @@ export default {
 }
 
 .classic-section {
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   box-sizing: border-box;
 }
 
@@ -171,6 +171,10 @@ export default {
   border-bottom: 2px solid #333;
   padding-bottom: 10px;
   margin: 0 0 20px 0;
+}
+.classic-section h3 {
+  margin-bottom: 10px;
+  margin-top: 8px;
 }
 .classic-section p,
 .classic-section span,
@@ -194,27 +198,29 @@ export default {
 .exp-row {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  margin-bottom: 4px;
+  gap: 6px;
+  margin-bottom: 18px;
 }
 
 .exp-position {
   font-weight: 700;
   font-size: 12pt;
   color: #000;
+  margin-bottom: 2px;
+}
+
+.exp-company {
+  margin: 2px 0 2px 0;
+  font-weight: 600;
+  color: #555;
+  font-size: 12pt;
 }
 
 .exp-period {
   font-size: 12pt;
   color: #666;
   white-space: nowrap;
-}
-
-.exp-company {
-  margin: 4px 0 8px 0;
-  font-weight: 600;
-  color: #555;
-  font-size: 12pt;
+  margin-bottom: 2px;
 }
 
 .exp-text {

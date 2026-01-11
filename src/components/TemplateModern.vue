@@ -289,7 +289,7 @@ export default {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin: 0 0 20px 0;
+  margin: 0 0 18px 0;
   color: #1a1a1a;
   padding-bottom: 12px;
   border-bottom: 2px solid #e5e7eb;
@@ -298,13 +298,28 @@ export default {
   margin-right: auto;
 }
 
-.section-text {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #555;
-  word-break: normal;
-  hyphens: none;
+.section-subtitle {
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
+
+.section-text,
+.exp-company,
+.exp-date,
+.exp-description,
+.exp-position {
+  font-size: 12pt;
+}
+
+.modern-section {
+  margin-bottom: 28px;
+}
+
+.exp-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
 }
 
 /* EXPERIÊNCIA */
@@ -327,8 +342,8 @@ export default {
 .exp-header {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  margin-bottom: 8px;
+  gap: 6px;
+  margin-bottom: 18px;
 }
 
 .exp-position {

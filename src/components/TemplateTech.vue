@@ -253,7 +253,7 @@ export default {
 }
 
 .tech-section {
-  margin-bottom: 35px;
+  margin-bottom: 28px;
 }
 
 .tech-section h2 {
@@ -267,12 +267,26 @@ export default {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 18px;
+}
+
+.tech-section h3 {
+  margin-bottom: 8px;
+  margin-top: 6px;
 }
 
 .tech-section p,
 .tech-section span,
 .tech-section h3 {
   font-size: 12pt;
+}
+
+.exp-header,
+.timeline-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 
 /* Timeline */
