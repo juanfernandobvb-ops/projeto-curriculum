@@ -132,6 +132,9 @@ export default {
   max-width: 210mm;
   margin: 0 auto;
   background: white;
+  min-height: 297mm;
+  display: flex;
+  flex-direction: column;
 }
 
 /* HEADER */
@@ -176,8 +179,9 @@ export default {
   display: flex !important;
   gap: 30px;
   flex-wrap: nowrap !important;
-  align-items: flex-start;
+  align-items: stretch;
   flex-direction: row !important;
+  flex: 1 1 auto;
 }
 
 /* SIDEBAR */
@@ -189,7 +193,7 @@ export default {
   background: #2c2c2c;
   color: white;
   padding: 30px 25px;
-  border-radius: 8px;
+  border-radius: 0;
   flex-shrink: 0 !important;
 }
 
@@ -205,7 +209,6 @@ export default {
 .sidebar-title {
   font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
   margin: 0 0 15px 0;
   text-transform: uppercase;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
