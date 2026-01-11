@@ -232,6 +232,9 @@ export default {
                   margin: 12mm 0 !important;
                   size: A4 portrait;
                 }
+                @page :first {
+                  margin-top: 0 !important;
+                }
                 * {
                   box-sizing: border-box !important;
                   -webkit-print-color-adjust: exact !important;

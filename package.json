@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
+    "@tabler/icons-vue": "^3.36.1",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "docxtemplater": "^3.67.6",
