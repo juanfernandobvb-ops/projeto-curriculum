@@ -88,7 +88,8 @@ export default {
 .template-startup {
   background: #fafbfc;
   color: #1a1a1a;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -106,6 +107,7 @@ export default {
   padding: 50px 40px;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .hero-accent {
@@ -133,14 +135,14 @@ export default {
 .hero-photo img {
   width: 120px;
   height: 120px;
-  border-radius: 12px;
+  border-radius: 0;
   border: 3px solid white;
   object-fit: cover;
 }
 
 .hero-text h1 {
   margin: 0 0 8px 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
@@ -164,6 +166,7 @@ export default {
 .startup-section {
   padding: 30px 40px;
   border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
 }
 
 .startup-section:last-child {
@@ -172,11 +175,14 @@ export default {
 
 .startup-section h2 {
   margin: 0 0 20px 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #1a1a1a;
   position: relative;
   padding-bottom: 12px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .startup-section h2::after {
@@ -262,7 +268,7 @@ export default {
 .edu-box {
   background: white;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 12px;
   border: 1px solid #e5e7eb;
 }
@@ -297,7 +303,7 @@ export default {
   background: white;
   color: #ff6b6b;
   padding: 8px 14px;
-  border-radius: 20px;
+  border-radius: 0;
   font-size: 0.85rem;
   font-weight: 600;
   border: 1px solid #ff6b6b;

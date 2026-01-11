@@ -116,6 +116,7 @@ export default {
   background: white;
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   padding: 0;
   
   /* Anti-quebra de palavras */
@@ -145,6 +146,7 @@ export default {
   margin-bottom: 20px;
   text-align: center;
   box-shadow: none;
+  box-sizing: border-box;
 }
 
 .photo-container {
@@ -162,7 +164,7 @@ export default {
 .name-section h1,
 .name {
   margin: 0;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #1a1a1a;
   font-weight: 700;
 }
@@ -182,6 +184,7 @@ export default {
   align-items: stretch;
   flex-direction: row !important;
   flex: 1 1 auto;
+  box-sizing: border-box;
 }
 
 /* SIDEBAR */
@@ -195,6 +198,7 @@ export default {
   padding: 30px 25px;
   border-radius: 0;
   flex-shrink: 0 !important;
+  box-sizing: border-box;
 }
 
 .sidebar-block {
@@ -248,7 +252,7 @@ export default {
 .skill-tag {
   background: rgba(255, 255, 255, 0.2);
   padding: 6px 12px;
-  border-radius: 20px;
+  border-radius: 0;
   font-size: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
@@ -268,10 +272,11 @@ export default {
   margin-bottom: 18px;
   border-radius: 0;
   box-shadow: none;
+  box-sizing: border-box;
 }
 
 .section-title {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -279,6 +284,9 @@ export default {
   color: #1a1a1a;
   padding-bottom: 12px;
   border-bottom: 2px solid #e5e7eb;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-text {

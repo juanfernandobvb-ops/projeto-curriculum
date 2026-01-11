@@ -99,6 +99,7 @@ export default {
   background: white;
   color: #1a1a1a;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -115,11 +116,12 @@ export default {
   color: white;
   padding: 40px;
   border-bottom: 3px solid #58a6ff;
+  box-sizing: border-box;
 }
 
 .header-content h1 {
   margin: 0 0 8px 0;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -132,7 +134,7 @@ export default {
 .header-photo {
   width: 80px;
   height: 80px;
-  border-radius: 50%;
+  border-radius: 0;
   object-fit: cover;
   border: 3px solid #58a6ff;
 }
@@ -155,7 +157,7 @@ export default {
   border: 1px solid #58a6ff;
   color: #79c0ff;
   padding: 6px 12px;
-  border-radius: 16px;
+  border-radius: 0;
   font-size: 0.75rem;
   font-weight: 600;
 }
@@ -167,6 +169,7 @@ export default {
   padding: 40px;
   flex-wrap: nowrap !important;
   flex-direction: row !important;
+  box-sizing: border-box;
 }
 
 /* SIDEBAR */
@@ -203,7 +206,7 @@ export default {
   border: 1px solid #d0d5dd;
   color: #0d1117;
   padding: 8px 10px;
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
@@ -242,6 +245,9 @@ export default {
   color: #1a1a1a;
   padding-bottom: 10px;
   border-bottom: 2px solid #58a6ff;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tech-section p {

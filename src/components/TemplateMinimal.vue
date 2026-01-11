@@ -107,6 +107,7 @@ export default {
   background: white;
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -125,6 +126,7 @@ export default {
   padding: 40px;
   background: white;
   border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
 }
 
 .header-photo {
@@ -134,7 +136,7 @@ export default {
 .small-photo {
   width: 100px;
   height: 100px;
-  border-radius: 8px;
+  border-radius: 0;
   object-fit: cover;
   border: 2px solid #ccc;
 }
@@ -160,6 +162,7 @@ export default {
   padding: 40px;
   flex-wrap: nowrap !important;
   flex-direction: row !important;
+  box-sizing: border-box;
 }
 
 /* SIDEBAR */
@@ -183,6 +186,7 @@ export default {
   margin: 0 0 15px 0;
   padding-bottom: 8px;
   border-bottom: 2px solid #333;
+  border-radius: 0;
 }
 
 .contact-list {
@@ -242,7 +246,7 @@ export default {
 }
 
 .minimal-section h2 {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -250,12 +254,16 @@ export default {
   margin: 0 0 20px 0;
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .minimal-item {
   margin-bottom: 20px;
   padding-bottom: 15px;
   border-bottom: 1px solid #f0f0f0;
+  border-radius: 0;
 }
 
 .minimal-item:last-child {

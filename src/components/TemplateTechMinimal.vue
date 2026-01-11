@@ -91,7 +91,8 @@ export default {
 .template-techminimal {
   background: #ffffff;
   color: #1a1a1a;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -123,14 +124,14 @@ export default {
 .photo-circle img {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 0;
   object-fit: cover;
   border: 2px solid #00d4ff;
 }
 
 .header-main h1 {
   margin: 0 0 8px 0;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
@@ -152,6 +153,7 @@ export default {
   font-size: 0.85rem;
   color: #555;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .contact-item {
@@ -170,6 +172,7 @@ export default {
   padding: 40px;
   flex-wrap: nowrap !important;
   flex-direction: row !important;
+  box-sizing: border-box;
 }
 
 .content {
@@ -183,13 +186,16 @@ export default {
 
 .section-title {
   margin: 0 0 20px 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: #1a1a1a;
   text-transform: uppercase;
   border-bottom: 1px solid #1a1a1a;
   padding-bottom: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .summary-text {
@@ -286,7 +292,7 @@ export default {
 .sidebar-section {
   padding: 20px;
   background: #f9f9f9;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .sidebar-title {
@@ -310,6 +316,7 @@ export default {
   color: #555;
   position: relative;
   padding-left: 15px;
+  border-radius: 0;
 }
 
 .tech-list li::before {

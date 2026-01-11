@@ -109,6 +109,7 @@ export default {
   background: white;
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -128,6 +129,7 @@ export default {
   gap: 40px;
   align-items: flex-start;
   border-bottom: 4px solid #1a1a1a;
+  box-sizing: border-box;
 }
 
 .header-photo {
@@ -139,7 +141,7 @@ export default {
   height: 200px;
   object-fit: cover;
   border: 2px solid #fff;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .header-info {
@@ -148,7 +150,7 @@ export default {
 
 .header-info h1 {
   margin: 0;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   color: white;
 }
@@ -185,6 +187,7 @@ export default {
   padding: 40px;
   flex-wrap: nowrap !important;
   flex-direction: row !important;
+  box-sizing: border-box;
 }
 
 /* SIDEBAR */
@@ -198,7 +201,7 @@ export default {
 .creative-block {
   background: #f5f5f5;
   padding: 25px 20px;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .creative-block h3 {
@@ -222,7 +225,7 @@ export default {
   background: white;
   border: 1px solid #ddd;
   padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 0.85rem;
   color: #555;
 }
@@ -237,7 +240,7 @@ export default {
 }
 
 .creative-section h2 {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -245,6 +248,9 @@ export default {
   margin: 0 0 20px 0;
   padding-bottom: 10px;
   border-bottom: 2px solid #333;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .creative-section p {
@@ -260,7 +266,7 @@ export default {
   border-left: 4px solid #2c2c2c;
   padding: 20px;
   margin-bottom: 15px;
-  border-radius: 4px;
+  border-radius: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 

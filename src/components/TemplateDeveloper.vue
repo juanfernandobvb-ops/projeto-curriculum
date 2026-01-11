@@ -97,6 +97,7 @@ export default {
   background: white;
   color: #1a1a1a;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -115,6 +116,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 30px;
+  box-sizing: border-box;
 }
 
 .code-snippet {
@@ -157,6 +159,7 @@ export default {
   flex-wrap: nowrap !important;
   gap: 40px;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .dev-main {
@@ -171,9 +174,12 @@ export default {
 
 .dev-section h2 {
   margin: 0 0 20px 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #667eea;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .dev-section p {
@@ -194,7 +200,7 @@ export default {
   background: #f9f9f9;
   padding: 20px;
   border-left: 4px solid #667eea;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .exp-header {
@@ -265,7 +271,7 @@ export default {
 .skill-item {
   background: #f0f0f0;
   padding: 12px;
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 0.9rem;
   color: #555;
 }
@@ -281,7 +287,7 @@ export default {
 .sidebar-box {
   background: #f9f9f9;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 20px;
 }
 
@@ -309,7 +315,7 @@ export default {
 
 .sidebar-photo {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 0;
   border: 3px solid #667eea;
 }
 

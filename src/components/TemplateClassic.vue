@@ -73,7 +73,8 @@ export default {
 .template-classic {
   background: white;
   color: #333;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   line-height: 1.6;
   
   /* Anti-quebra de palavras */
@@ -96,7 +97,7 @@ export default {
 
 .classic-header h1 {
   margin: 0;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -113,10 +114,11 @@ export default {
   width: 100px;
   height: 2px;
   background: #666;
-  margin: 15px auto 15px auto;
+  margin: 15px auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 .classic-contact {
@@ -135,14 +137,16 @@ export default {
 /* CONTENT */
 .classic-content {
   padding: 0 40px 30px 40px;
+  box-sizing: border-box;
 }
 
 .classic-section {
   margin-bottom: 25px;
+  box-sizing: border-box;
 }
 
 .classic-section h2 {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -251,7 +255,7 @@ export default {
   padding: 8px 14px;
   font-size: 0.85rem;
   color: #333;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 

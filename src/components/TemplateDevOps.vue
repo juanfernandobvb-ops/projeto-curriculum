@@ -126,9 +126,10 @@ export default {
 
 <style scoped>
 .template-devops {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
   background: white;
   color: #1a1a1a;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -147,6 +148,7 @@ export default {
   display: flex;
   gap: 30px;
   align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .header-photo {
@@ -156,7 +158,7 @@ export default {
 .header-photo img {
   width: 120px;
   height: 120px;
-  border-radius: 8px;
+  border-radius: 0;
   border: 3px solid rgba(255, 255, 255, 0.3);
   object-fit: cover;
 }
@@ -188,6 +190,7 @@ export default {
   flex-wrap: nowrap !important;
   gap: 40px;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .main-content {
@@ -207,6 +210,9 @@ export default {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid #2a5298;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-icon {
@@ -215,7 +221,7 @@ export default {
 
 .section-header h2 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #1e3c72;
 }
@@ -256,7 +262,7 @@ export default {
 .timeline-content {
   background: #f8f9fa;
   padding: 18px;
-  border-radius: 6px;
+  border-radius: 0;
   border-left: 3px solid #2a5298;
 }
 
@@ -392,13 +398,14 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
+  border-radius: 0;
 }
 
 .stat {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: white;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 0;
   text-align: center;
 }
 
