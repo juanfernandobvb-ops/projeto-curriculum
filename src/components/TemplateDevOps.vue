@@ -279,8 +279,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 15px;
-  margin-bottom: 8px;
+  gap: 10px;
+  min-width: 0;
 }
 
 .timeline-content h3 {
@@ -291,13 +291,17 @@ export default {
 }
 
 .company-badge {
-  background: #2a5298;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
+  color: #2a5298;
   font-weight: 600;
-  white-space: nowrap;
+  background: #e5e7eb;
+  padding: 2px 8px;
+  border-radius: 0;
+  max-width: 60%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  text-align: right;
 }
 
 .timeline-date {

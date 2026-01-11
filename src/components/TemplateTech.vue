@@ -179,14 +179,19 @@ export default {
   flex-wrap: nowrap !important;
   flex-direction: row !important;
   box-sizing: border-box;
+  align-items: flex-start;
 }
 
 /* SIDEBAR */
 .tech-sidebar {
-  flex: 0 0 260px !important;
-  min-width: 260px !important;
-  max-width: 260px !important;
+  flex: 0 0 220px !important;
+  min-width: 180px !important;
+  max-width: 220px !important;
+  width: 220px !important;
   flex-shrink: 0 !important;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .tech-block {
@@ -238,7 +243,11 @@ export default {
 
 /* MAIN CONTENT */
 .tech-main {
-  flex: 1;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .tech-section {
