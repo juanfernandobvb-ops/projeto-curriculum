@@ -71,6 +71,15 @@ export default {
 </script>
 
 <style scoped>
+:root, html, body {
+  font-size: 12pt;
+}
+@media print {
+  :root, html, body {
+    font-size: 12pt;
+  }
+}
+
 .template-startup {
   background: #fafbfc;
   color: #1a1a1a;

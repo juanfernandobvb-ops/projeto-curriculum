@@ -72,6 +72,15 @@ export default {
 </script>
 
 <style scoped>
+:root, html, body {
+  font-size: 12pt;
+}
+@media print {
+  :root, html, body {
+    font-size: 12pt;
+  }
+}
+
 .template-techminimal {
   background: #fff;
   color: #1a1a1a;
