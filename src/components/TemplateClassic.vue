@@ -114,6 +114,9 @@ export default {
   height: 2px;
   background: #666;
   margin: 15px auto 15px auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .classic-contact {

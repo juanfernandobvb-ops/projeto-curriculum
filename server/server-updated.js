@@ -3,7 +3,7 @@ import cors from 'cors'
 import puppeteer from 'puppeteer'
 
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 app.use(cors())
 app.use(express.json({ limit: '50mb' }))
@@ -25,9 +25,10 @@ app.post('/api/generate-pdf', async (req, res) => {
     console.log('🚀 Iniciando Puppeteer...')
     
     // Inicia o navegador
+    const isLinux = process.platform === 'linux';
     browser = await puppeteer.launch({
       headless: true,
-      executablePath: '/snap/bin/chromium',
+      executablePath: isLinux ? '/snap/bin/chromium' : undefined,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
