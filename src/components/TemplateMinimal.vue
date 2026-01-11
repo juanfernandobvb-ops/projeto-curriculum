@@ -113,27 +113,22 @@ export default {
 }
 
 .template-minimal {
-  background: white;
-  color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1rem;
-  
-  /* Anti-quebra de palavras */
-  word-break: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: none;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
+  font-size: 12pt;
+  background: #fff;
+  color: #333;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* HEADER */
 .minimal-header {
   display: flex;
   align-items: center;
-  gap: 30px;
-  padding: 40px;
-  background: white;
+  gap: 32px;
+  padding: 36px 32px 18px 32px;
+  background: #fff;
   border-bottom: 1px solid #e5e7eb;
   box-sizing: border-box;
 }
@@ -143,65 +138,69 @@ export default {
 }
 
 .small-photo {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 0;
   object-fit: cover;
   border: 2px solid #ccc;
+  display: block;
+  margin: 0 auto;
 }
 
 .header-text h1 {
-  margin: 0;
+  margin: 0 0 8px 0;
   font-size: 2rem;
   color: #1a1a1a;
   font-weight: 700;
 }
 
 .minimal-subtitle {
-  margin: 6px 0 0 0;
-  font-size: 0.95rem;
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
   color: #666;
   font-weight: 500;
 }
 
 /* MAIN LAYOUT */
 .minimal-layout {
-  display: flex !important;
-  gap: 30px;
-  padding: 40px;
-  flex-wrap: nowrap !important;
-  flex-direction: row !important;
+  display: flex;
+  gap: 32px;
+  padding: 32px 24px 32px 24px;
+  flex-wrap: nowrap;
+  flex-direction: row;
   box-sizing: border-box;
 }
 
 /* SIDEBAR */
 .minimal-sidebar {
-  flex: 0 0 240px !important;
-  min-width: 240px !important;
-  max-width: 240px !important;
-  flex-shrink: 0 !important;
+  flex: 0 0 220px;
+  min-width: 220px;
+  max-width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .minimal-block {
-  margin-bottom: 35px;
+  margin-bottom: 24px;
 }
 
 .minimal-block h3 {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #1a1a1a;
-  margin: 0 0 15px 0;
+  margin: 0 0 12px 0;
   padding-bottom: 8px;
   border-bottom: 2px solid #333;
-  border-radius: 0;
 }
 
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .contact-line {
@@ -238,7 +237,7 @@ export default {
 }
 
 .skill-dot::before {
-  content: '•';
+  content: '\2022';
   position: absolute;
   left: 0;
   color: #333;
@@ -248,10 +247,21 @@ export default {
 /* MAIN CONTENT */
 .minimal-main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .minimal-section {
-  margin-bottom: 35px;
+  margin-bottom: 32px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .minimal-section h2 {
@@ -260,19 +270,15 @@ export default {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #1a1a1a;
-  margin: 0 0 20px 0;
-  padding-bottom: 10px;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
   border-bottom: 1px solid #ddd;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .minimal-item {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
   border-bottom: 1px solid #f0f0f0;
-  border-radius: 0;
 }
 
 .minimal-item:last-child {
@@ -312,11 +318,21 @@ export default {
 @media (max-width: 900px) {
   .minimal-layout {
     flex-direction: column;
+    gap: 20px;
+    padding: 16px 4vw;
   }
-
   .minimal-sidebar {
     flex: 1;
+    min-width: 0;
+    max-width: none;
+    gap: 16px;
+  }
+  .minimal-main {
+    gap: 20px;
+  }
+  .minimal-section {
+    padding: 16px 8px;
+    gap: 8px;
   }
 }
-
 </style>
