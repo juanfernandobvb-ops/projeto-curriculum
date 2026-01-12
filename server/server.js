@@ -51,11 +51,12 @@ app.post('/api/generate-pdf', async (req, res) => {
     const pdf = await page.pdf({
       format: 'A4',
       printBackground: true,
+      preferCSSPageSize: true,
       margin: {
-        top: '15mm',
-        right: '12mm',
-        bottom: '15mm',
-        left: '12mm'
+        top: '0',
+        right: '0',
+        bottom: '0',
+        left: '0'
       }
     })
 

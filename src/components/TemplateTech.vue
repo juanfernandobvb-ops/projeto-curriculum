@@ -130,8 +130,8 @@ export default {
 .template-tech {
   background: white;
   color: #1a1a1a;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1rem;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12pt;
   
   /* Anti-quebra de palavras */
   word-break: normal;
@@ -153,7 +153,7 @@ export default {
 
 .header-content h1 {
   margin: 0 0 8px 0;
-  font-size: 2rem;
+  font-size: 24pt;
   font-weight: 700;
 }
 
@@ -173,7 +173,7 @@ export default {
 
 .tech-subtitle {
   margin: 0 0 15px 0;
-  font-size: 1.1rem;
+  font-size: 13.2pt;
   color: #79c0ff;
   font-weight: 600;
 }
@@ -190,7 +190,7 @@ export default {
   color: #79c0ff;
   padding: 6px 12px;
   border-radius: 0;
-  font-size: 0.75rem;
+  font-size: 9pt;
   font-weight: 600;
 }
 
@@ -223,7 +223,7 @@ export default {
 
 .block-title {
   margin: 0 0 15px 0;
-  font-size: 0.9rem;
+  font-size: 10.8pt;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -244,7 +244,7 @@ export default {
   color: #0d1117;
   padding: 4px 4px;
   border-radius: 0;
-  font-size: 0.72rem;
+  font-size: 8.6pt;
   font-weight: 600;
   text-align: center;
   max-width: 140px;
@@ -257,7 +257,7 @@ export default {
 }
 
 .contact-tech {
-  font-size: 0.78rem;
+  font-size: 9.4pt;
   color: #555;
   padding: 0;
   display: flex;
@@ -275,7 +275,7 @@ export default {
 }
 
 .contact-icon {
-  font-size: 1rem;
+  font-size: 12pt;
   width: 18px;
   display: inline-flex;
   justify-content: center;
@@ -283,7 +283,7 @@ export default {
 }
 
 .contact-info {
-  font-size: 0.78rem;
+  font-size: 9.4pt;
   color: #222;
   word-break: break-all;
 }
@@ -370,7 +370,7 @@ export default {
 
 .timeline-body h3 {
   margin: 0 0 4px 0;
-  font-size: 1rem;
+  font-size: 12pt;
   color: #1a1a1a;
   font-weight: 700;
 }
@@ -383,14 +383,14 @@ export default {
 
 .company-name {
   margin: 0 0 4px 0;
-  font-size: 0.9rem;
+  font-size: 10.8pt;
   font-weight: 600;
   color: #58a6ff;
 }
 
 .date-range {
   margin: 0 0 8px 0;
-  font-size: 0.85rem;
+  font-size: 10.2pt;
   color: #999;
 }
 
