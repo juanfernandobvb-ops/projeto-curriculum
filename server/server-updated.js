@@ -46,6 +46,8 @@ app.post('/api/generate-pdf', async (req, res) => {
       waitUntil: 'networkidle0',
       timeout: 30000
     })
+    // Aguarda o carregamento das fontes
+    await page.evaluateHandle('document.fonts.ready');
 
     // Garante que o CSS do preview seja usado no PDF
     await page.emulateMediaType('screen');
