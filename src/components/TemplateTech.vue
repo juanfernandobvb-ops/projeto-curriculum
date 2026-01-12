@@ -1,85 +1,87 @@
 <template>
-  <div class="template-tech">
-    <!-- Header com fundo escuro tipo terminal -->
-    <header class="tech-header">
-      <div class="header-content">
-        <h1 v-if="curriculum.photo" class="header-with-photo">
-          <img :src="curriculum.photo" :alt="curriculum.name" class="header-photo">
-          {{ curriculum.name }}
-        </h1>
-        <h1 v-else>{{ curriculum.name }}</h1>
-        <p class="tech-subtitle">{{ curriculum.title }}</p>
-        <div class="tech-badges">
-          <span class="badge">{{ curriculum.location }}</span>
-          <span class="badge">{{ curriculum.email }}</span>
-          <span class="badge">{{ curriculum.phone }}</span>
+  <div class="a4-curriculum-container">
+    <div class="template-tech">
+      <!-- Header com fundo escuro tipo terminal -->
+      <header class="tech-header">
+        <div class="header-content">
+          <h1 v-if="curriculum.photo" class="header-with-photo">
+            <img :src="curriculum.photo" :alt="curriculum.name" class="header-photo">
+            {{ curriculum.name }}
+          </h1>
+          <h1 v-else>{{ curriculum.name }}</h1>
+          <p class="tech-subtitle">{{ curriculum.title }}</p>
+          <div class="tech-badges">
+            <span class="badge">{{ curriculum.location }}</span>
+            <span class="badge">{{ curriculum.email }}</span>
+            <span class="badge">{{ curriculum.phone }}</span>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <!-- 2 Colunas -->
-    <div class="tech-layout">
-      <!-- Sidebar Esquerda - Habilidades -->
-      <aside class="tech-sidebar">
-        <!-- Stack Tecnológico -->
-        <section v-if="curriculum.skills && curriculum.skills.length" class="tech-block">
-          <h3 class="block-title">Stack</h3>
-          <div class="tech-grid">
-            <span v-for="(skill, index) in curriculum.skills" :key="index" class="tech-badge">
-              {{ skill }}
-            </span>
-          </div>
-        </section>
+      <!-- 2 Colunas -->
+      <div class="tech-layout">
+        <!-- Sidebar Esquerda - Habilidades -->
+        <aside class="tech-sidebar">
+          <!-- Stack Tecnológico -->
+          <section v-if="curriculum.skills && curriculum.skills.length" class="tech-block">
+            <h3 class="block-title">Stack Tecnológico</h3>
+            <div class="tech-grid">
+              <span v-for="(skill, index) in curriculum.skills" :key="index" class="tech-badge">
+                {{ skill }}
+              </span>
+            </div>
+          </section>
 
-        <!-- Contato -->
-        <section class="tech-block">
-          <h3 class="block-title">Contato</h3>
-          <div class="contact-tech">
-            <div class="contact-row"><IconMail class="contact-icon" /><span class="contact-info">{{ curriculum.email }}</span></div>
-            <div class="contact-row"><IconPhone class="contact-icon" /><span class="contact-info">{{ curriculum.phone }}</span></div>
-            <div class="contact-row"><IconMapPin class="contact-icon" /><span class="contact-info">{{ curriculum.location }}</span></div>
-            <div v-if="curriculum.age" class="contact-row"><IconCake class="contact-icon" /><span class="contact-info">{{ curriculum.age }} anos</span></div>
-            <div v-if="curriculum.gender" class="contact-row"><IconUser class="contact-icon" /><span class="contact-info">{{ curriculum.gender }}</span></div>
-            <div v-if="curriculum.cnh" class="contact-row"><IconCar class="contact-icon" /><span class="contact-info">{{ curriculum.cnh }}</span></div>
-          </div>
-        </section>
-      </aside>
+          <!-- Contato -->
+          <section class="tech-block">
+            <h3 class="block-title">Contato</h3>
+            <div class="contact-tech">
+              <div class="contact-row"><IconMail class="contact-icon" /><span class="contact-info">{{ curriculum.email }}</span></div>
+              <div class="contact-row"><IconPhone class="contact-icon" /><span class="contact-info">{{ curriculum.phone }}</span></div>
+              <div class="contact-row"><IconMapPin class="contact-icon" /><span class="contact-info">{{ curriculum.location }}</span></div>
+              <div v-if="curriculum.age" class="contact-row"><IconCake class="contact-icon" /><span class="contact-info">{{ curriculum.age }} anos</span></div>
+              <div v-if="curriculum.gender" class="contact-row"><IconUser class="contact-icon" /><span class="contact-info">{{ curriculum.gender }}</span></div>
+              <div v-if="curriculum.cnh" class="contact-row"><IconCar class="contact-icon" /><span class="contact-info">{{ curriculum.cnh }}</span></div>
+            </div>
+          </section>
+        </aside>
 
-      <!-- Conteúdo Principal -->
-      <main class="tech-main">
-        <!-- Resumo Profissional -->
-        <section v-if="curriculum.summary" class="tech-section">
-          <h2>Sobre</h2>
-          <p>{{ curriculum.summary }}</p>
-        </section>
+        <!-- Conteúdo Principal -->
+        <main class="tech-main">
+          <!-- Resumo Profissional -->
+          <section v-if="curriculum.summary" class="tech-section">
+            <h2>Sobre</h2>
+            <p>{{ curriculum.summary }}</p>
+          </section>
 
-        <!-- Experiência Profissional -->
-        <section v-if="curriculum.experience && curriculum.experience.length" class="tech-section">
-          <h2>Experiência Profissional</h2>
-          <div class="experience-timeline">
-            <div v-for="(item, index) in curriculum.experience" :key="index" class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-body">
-                <div class="exp-header">
-                  <h3>{{ item.position }}</h3>
-                  <span class="company-name">{{ item.company }}</span>
-                  <span class="date-range">{{ item.startDate }} → {{ item.endDate }}</span>
+          <!-- Experiência Profissional -->
+          <section v-if="curriculum.experience && curriculum.experience.length" class="tech-section">
+            <h2>Experiência Profissional</h2>
+            <div class="experience-timeline">
+              <div v-for="(item, index) in curriculum.experience" :key="index" class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-body">
+                  <div class="exp-header">
+                    <h3>{{ item.position }}</h3>
+                    <span class="company-name">{{ item.company }}</span>
+                    <span class="date-range">{{ item.startDate }} → {{ item.endDate }}</span>
+                  </div>
+                  <p class="description">{{ item.description }}</p>
                 </div>
-                <p class="description">{{ item.description }}</p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Educação -->
-        <section v-if="curriculum.education && curriculum.education.length" class="tech-section">
-          <h2>Educação</h2>
-          <div v-for="(item, index) in curriculum.education" :key="index" class="education-item">
-            <h3>{{ item.degree }}</h3>
-            <p class="institution">{{ item.institution }} • {{ item.graduationYear }}</p>
-          </div>
-        </section>
-      </main>
+          <!-- Educação -->
+          <section v-if="curriculum.education && curriculum.education.length" class="tech-section">
+            <h2>Educação</h2>
+            <div v-for="(item, index) in curriculum.education" :key="index" class="education-item">
+              <h3>{{ item.degree }}</h3>
+              <p class="institution">{{ item.institution }} • {{ item.graduationYear }}</p>
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
   </div>
 </template>
@@ -101,6 +103,21 @@ export default {
 </script>
 
 <style scoped>
+:root, html, body {
+  font-size: 12pt;
+}
+
+.a4-curriculum-container {
+  width: 210mm;
+  min-height: 297mm;
+  box-sizing: border-box;
+  background: #fff;
+  margin: 24px auto;
+  box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 :root, html, body {
   font-size: 12pt;
 }
