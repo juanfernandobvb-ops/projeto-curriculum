@@ -47,6 +47,9 @@ app.post('/api/generate-pdf', async (req, res) => {
       timeout: 30000
     })
 
+    // Garante que o CSS do preview seja usado no PDF
+    await page.emulateMediaType('screen');
+
     console.log('🖨️ Gerando PDF...')
 
     // Gera o PDF com margens laterais zeradas
