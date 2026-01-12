@@ -239,11 +239,26 @@ export default {
   display: block;
 }
 
+.skill-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 0;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin-top: 0 !important;
+}
+
+.skills-separator {
+  height: 0;
+  margin-bottom: 18px !important;
+  display: block;
+}
+
 .skills-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: 0 !important;
 }
 
 @media print {
@@ -263,8 +278,21 @@ export default {
     height: 0 !important;
     display: block !important;
   }
+  .skill-tag {
+    background: rgba(255, 255, 255, 0.2) !important;
+    padding: 6px 12px !important;
+    border-radius: 0 !important;
+    font-size: 0.8rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    margin-top: 0 !important;
+  }
+  .skills-separator {
+    height: 0 !important;
+    margin-bottom: 18px !important;
+    display: block !important;
+  }
   .skills-list {
-    margin-top: 18px !important;
+    margin-top: 0 !important;
     gap: 8px !important;
   }
 }
