@@ -215,8 +215,11 @@ export default {
   width: 100%;
 }
 
-.sidebar-block:last-child {
-  margin-bottom: 0;
+.sidebar-block.skills-block {
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .sidebar-title {
@@ -226,6 +229,7 @@ export default {
   text-transform: uppercase;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 10px;
+  display: block;
 }
 
 .contact-list {
@@ -256,6 +260,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 16px;
 }
 
 .skill-tag {
