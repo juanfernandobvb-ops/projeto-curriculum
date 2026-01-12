@@ -298,23 +298,29 @@ export default {
   margin-right: auto;
 }
 
+.skills-title {
+  margin-bottom: 12px !important;
+  padding-bottom: 6px !important;
+  display: block;
+}
+
 .divider {
   border-bottom: 1px solid #aaa;
   margin: 16px 0 16px 0;
-}
-
-.skills-title {
-  margin-bottom: 12px !important;
+  padding-bottom: 6px;
   display: block;
 }
 
 @media print {
   .skills-title {
-    margin-bottom: 12px !important;
-    display: block;
+    margin-bottom: 14px !important;
+    padding-bottom: 8px !important;
+    display: block !important;
   }
   .divider {
-    margin: 16px 0 16px 0 !important;
+    margin: 18px 0 18px 0 !important;
+    padding-bottom: 10px !important;
+    display: block !important;
   }
 }
 
