@@ -23,7 +23,7 @@
       <aside class="tech-sidebar">
         <!-- Stack Tecnológico -->
         <section v-if="curriculum.skills && curriculum.skills.length" class="tech-block">
-          <h3 class="block-title">Stack Tecnológico</h3>
+          <h3 class="block-title">Stack</h3>
           <div class="tech-grid">
             <span v-for="(skill, index) in curriculum.skills" :key="index" class="tech-badge">
               {{ skill }}
@@ -35,12 +35,12 @@
         <section class="tech-block">
           <h3 class="block-title">Contato</h3>
           <div class="contact-tech">
-            <p><strong>Email:</strong> {{ curriculum.email }}</p>
-            <p><strong>Phone:</strong> {{ curriculum.phone }}</p>
-            <p><strong>Endereço:</strong> {{ curriculum.location }}</p>
-            <p v-if="curriculum.age"><strong>Idade:</strong> {{ curriculum.age }} anos</p>
-            <p v-if="curriculum.gender"><strong>Sexo:</strong> {{ curriculum.gender }}</p>
-            <p v-if="curriculum.cnh"><strong>CNH:</strong> {{ curriculum.cnh }}</p>
+            <div class="contact-row"><IconMail class="contact-icon" /><span class="contact-info">{{ curriculum.email }}</span></div>
+            <div class="contact-row"><IconPhone class="contact-icon" /><span class="contact-info">{{ curriculum.phone }}</span></div>
+            <div class="contact-row"><IconMapPin class="contact-icon" /><span class="contact-info">{{ curriculum.location }}</span></div>
+            <div v-if="curriculum.age" class="contact-row"><IconCake class="contact-icon" /><span class="contact-info">{{ curriculum.age }} anos</span></div>
+            <div v-if="curriculum.gender" class="contact-row"><IconUser class="contact-icon" /><span class="contact-info">{{ curriculum.gender }}</span></div>
+            <div v-if="curriculum.cnh" class="contact-row"><IconCar class="contact-icon" /><span class="contact-info">{{ curriculum.cnh }}</span></div>
           </div>
         </section>
       </aside>
@@ -85,8 +85,12 @@
 </template>
 
 <script>
+import { IconMail, IconPhone, IconMapPin, IconCake, IconUser, IconCar } from '@tabler/icons-vue'
 export default {
   name: 'TemplateTech',
+  components: {
+    IconMail, IconPhone, IconMapPin, IconCake, IconUser, IconCar
+  },
   props: {
     curriculum: {
       type: Object,
@@ -186,10 +190,10 @@ export default {
 
 /* SIDEBAR */
 .tech-sidebar {
-  flex: 0 0 220px !important;
-  min-width: 180px !important;
-  max-width: 220px !important;
-  width: 220px !important;
+  flex: 0 0 160px !important;
+  min-width: 140px !important;
+  max-width: 160px !important;
+  width: 160px !important;
   flex-shrink: 0 !important;
   box-sizing: border-box;
   overflow-wrap: break-word;
@@ -212,8 +216,8 @@ export default {
 }
 
 .tech-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
@@ -221,26 +225,50 @@ export default {
   background: #f0f4f8;
   border: 1px solid #d0d5dd;
   color: #0d1117;
-  padding: 8px 10px;
+  padding: 4px 4px;
   border-radius: 0;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
   text-align: center;
+  max-width: 140px;
+  min-width: 0;
+  width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contact-tech {
-  font-size: 0.85rem;
-  line-height: 1.8;
+  font-size: 0.78rem;
   color: #555;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.contact-tech p {
-  margin: 0 0 8px 0;
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+  flex-wrap: wrap;
+  word-break: break-all;
 }
 
-.contact-tech strong {
-  color: #1a1a1a;
-  font-weight: 600;
+.contact-icon {
+  font-size: 1rem;
+  width: 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-info {
+  font-size: 0.78rem;
+  color: #222;
+  word-break: break-all;
 }
 
 /* MAIN CONTENT */
@@ -292,7 +320,7 @@ export default {
 /* Timeline */
 .experience-timeline {
   position: relative;
-  padding-left: 30px;
+  padding-left: 32px;
 }
 
 .timeline-item {
