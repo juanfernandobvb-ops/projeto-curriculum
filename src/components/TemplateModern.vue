@@ -110,7 +110,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 :root, html, body {
   font-size: 12pt;
 }
@@ -232,43 +232,41 @@ export default {
   display: block;
 }
 
-.contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-item {
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-.contact-item strong {
+.skills-divider {
+  border-bottom: 1px solid #aaa;
+  margin: 18px 0 18px 0;
+  height: 0;
   display: block;
-  font-weight: 600;
-  margin-bottom: 4px;
-  opacity: 0.9;
-}
-
-.contact-item p {
-  margin: 0;
-  opacity: 0.85;
-  word-break: break-word;
 }
 
 .skills-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
-.skill-tag {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 6px 12px;
-  border-radius: 0;
-  font-size: 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+@media print {
+  .sidebar-block.skills-block {
+    min-height: 70px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+  .sidebar-title {
+    margin-bottom: 15px !important;
+    padding-bottom: 10px !important;
+    display: block !important;
+  }
+  .skills-divider {
+    margin: 18px 0 18px 0 !important;
+    height: 0 !important;
+    display: block !important;
+  }
+  .skills-list {
+    margin-top: 18px !important;
+    gap: 8px !important;
+  }
 }
 
 /* CONTENT AREA */
