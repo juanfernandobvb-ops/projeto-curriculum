@@ -124,6 +124,19 @@ export default {
 @media print {
   :root, html, body {
     font-size: 12pt;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+  .a4-curriculum-container {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: avoid;
+    page-break-before: avoid;
+    page-break-inside: avoid;
   }
 }
 
@@ -160,12 +173,12 @@ export default {
 .header-with-photo {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 5mm;
 }
 
 .header-photo {
-  width: 80px;
-  height: 80px;
+  width: 21mm;
+  height: 21mm;
   border-radius: 0;
   object-fit: cover;
   border: 3px solid #58a6ff;
@@ -180,7 +193,7 @@ export default {
 
 .tech-badges {
   display: flex;
-  gap: 8px;
+  gap: 2mm;
   flex-wrap: wrap;
 }
 
@@ -197,7 +210,7 @@ export default {
 /* LAYOUT */
 .tech-layout {
   display: flex !important;
-  gap: 30px;
+  gap: 8mm;
   padding: 40px;
   flex-wrap: nowrap !important;
   flex-direction: row !important;
@@ -207,10 +220,10 @@ export default {
 
 /* SIDEBAR */
 .tech-sidebar {
-  flex: 0 0 160px !important;
-  min-width: 140px !important;
-  max-width: 160px !important;
-  width: 160px !important;
+  flex: 0 0 42mm !important;
+  min-width: 37mm !important;
+  max-width: 42mm !important;
+  width: 42mm !important;
   flex-shrink: 0 !important;
   box-sizing: border-box;
   overflow-wrap: break-word;
@@ -235,7 +248,7 @@ export default {
 .tech-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2mm;
 }
 
 .tech-badge {
@@ -247,7 +260,7 @@ export default {
   font-size: 8.6pt;
   font-weight: 600;
   text-align: center;
-  max-width: 140px;
+  max-width: 37mm;
   min-width: 0;
   width: 100%;
   margin: 0 auto;
@@ -262,13 +275,13 @@ export default {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.5mm;
 }
 
 .contact-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 1.5mm;
   margin-bottom: 2px;
   flex-wrap: wrap;
   word-break: break-all;
@@ -276,7 +289,7 @@ export default {
 
 .contact-icon {
   font-size: 12pt;
-  width: 18px;
+  width: 4.8mm;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -354,8 +367,8 @@ export default {
   position: absolute;
   left: -30px;
   top: 5px;
-  width: 12px;
-  height: 12px;
+  width: 3.2mm;
+  height: 3.2mm;
   background: #58a6ff;
   border-radius: 50%;
   border: 3px solid white;
